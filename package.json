@@ -1,0 +1,30 @@
+{
+  "name": "texture-packer",
+  "version": "1.0.0",
+  "description": "It is a CLI tool used to generate texture atlases for graphics applications such as GUI, video games and so on to improve performance of these applications.",
+  "main": "index.js",
+  "scripts": {
+    "install": "node build.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ii887522/texture-packer.git"
+  },
+  "keywords": [
+    "CLI",
+    "texture",
+    "atlas",
+    "packer",
+    "generator"
+  ],
+  "author": "ii887522",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/ii887522/texture-packer/issues"
+  },
+  "homepage": "https://gitlab.com/ii887522/texture-packer#readme",
+  "dependencies": {
+    "@ii887522/packify": "^1.5.1"
+  }
+}
