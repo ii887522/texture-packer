@@ -19,13 +19,84 @@
     <Filter Include="Test Source Files">
       <UniqueIdentifier>{71b15266-dc8b-44ba-b7b6-da2bcb5610a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test Resource Files">
+      <UniqueIdentifier>{a7651ab4-60af-4bfe-a2c3-794eca45d98a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Any">
+      <UniqueIdentifier>{8709156e-c981-4cd8-91df-99afdc30f5af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Functions">
+      <UniqueIdentifier>{39db5c18-ef1e-46aa-a0a8-aaae80f226a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Struct">
+      <UniqueIdentifier>{13ad5cda-2353-426c-a949-49de76da35fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ViewGroupFactory">
+      <UniqueIdentifier>{35cf5e2b-6932-4c8a-96b7-a15c9fd86493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Any">
+      <UniqueIdentifier>{02a22eed-c24d-4029-bb51-e51a4ea42ebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functions">
+      <UniqueIdentifier>{18e9e92f-57c2-426e-a0d7-4a1f1f44666e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ViewGroupFactory">
+      <UniqueIdentifier>{386a40c1-52a5-4e4e-921e-1369ac9f03a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files\Any">
+      <UniqueIdentifier>{87a817eb-a988-44d8-9d08-0372b8df8e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Any">
+      <UniqueIdentifier>{904cf034-29aa-4135-ae18-03932e7c01ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Functions">
+      <UniqueIdentifier>{9a84d049-c469-4ad0-9ef5-b03ad9c49303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files\Functions">
+      <UniqueIdentifier>{8d883a04-1024-4cfa-97bc-0a8bca6890b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main\main.cpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\main\Any\CommandLine.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\util.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\ViewGroupFactory\TexturePackerViewGroupFactory.h">
+      <Filter>Header Files\ViewGroupFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Sprite.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Any\CommandLine.test.h">
+      <Filter>Test Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Functions\util.test.h">
+      <Filter>Test Header Files\Functions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main\Any\CommandLine.cpp">
+      <Filter>Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\test.cpp">
-      <Filter>Test Source Files</Filter>
+    <ClCompile Include="src\main\Functions\main.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Functions\util.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\ViewGroupFactory\TexturePackerViewGroupFactory.cpp">
+      <Filter>Source Files\ViewGroupFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Any\CommandLine.test.cpp">
+      <Filter>Test Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Functions\test.cpp">
+      <Filter>Test Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Functions\util.test.cpp">
+      <Filter>Test Source Files\Functions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
