@@ -6,7 +6,7 @@
 #include <Any/allocator.h>
 
 #include "../Any/CommandLine.test.h"
-#include "util.test.h"
+#include "util.test.h"  // NOLINT(build/include_subdir)
 
 namespace ii887522::texturePacker {
 

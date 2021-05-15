@@ -1,17 +1,17 @@
 // Copyright ii887522
 
-#ifndef TEST
+#ifndef TEXTURE_PACKER_SRC_MAIN_VIEWGROUPFACTORY_TEXTUREPACKERVIEWGROUPFACTORY_H_
+#define TEXTURE_PACKER_SRC_MAIN_VIEWGROUPFACTORY_TEXTUREPACKERVIEWGROUPFACTORY_H_
 
-#ifndef TEXTURE_PACKER_SRC_MAIN_VIEW_GROUP_FACTORY_TEXTURE_PACKER_VIEW_GROUP_FACTORY_H_
-#define TEXTURE_PACKER_SRC_MAIN_VIEW_GROUP_FACTORY_TEXTURE_PACKER_VIEW_GROUP_FACTORY_H_
+#ifndef TEST
 
 #include <Factory/ViewGroupFactory.h>
 #include <View/ViewGroup.h>
 #include <SDL.h>
 #include <Struct/Size.h>
-#include "../Struct/Sprite.h"
 #include <vector>
 #include <string>
+#include "../Struct/Sprite.h"
 
 using ii887522::viewify::ViewGroupFactory;
 using ii887522::viewify::ViewGroup;
@@ -22,7 +22,7 @@ using std::string;
 namespace ii887522::texturePacker {
 
 // Texture Packer is a CLI tool used to generate texture atlases for graphics applications such as GUI, video games and so on to improve performance of these applications.
-// 
+//
 // Not Thread Safe: it must only be used in main thread
 // See also View/ViewGroup.h for more details
 // See also TextureAtlas.h for more details
@@ -61,5 +61,5 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
 
 }  // namespace ii887522::texturePacker
 
-#endif  // TEXTURE_PACKER_SRC_MAIN_VIEW_GROUP_FACTORY_TEXTURE_PACKER_VIEW_GROUP_FACTORY_H_
 #endif
+#endif  // TEXTURE_PACKER_SRC_MAIN_VIEWGROUPFACTORY_TEXTUREPACKERVIEWGROUPFACTORY_H_

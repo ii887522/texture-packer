@@ -17,7 +17,8 @@ string getSpriteNameEnumFileContent(const string& inputDirPath);
 // Param outputDirPath: it must ends with either '/' or '\\'
 void writeSpriteNameEnumFile(const string& inputDirPath, const string& outputDirPath);
 
-void rotate(Sprite&);
+// Param sprite: it must not be assigned to nullptr or integer
+void rotate(Sprite*const sprite);
 
 }  // namespace ii887522::texturePacker
 

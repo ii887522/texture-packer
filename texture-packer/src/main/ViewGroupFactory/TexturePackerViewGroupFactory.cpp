@@ -3,6 +3,12 @@
 #ifndef TEST
 
 #include "TexturePackerViewGroupFactory.h"
+#include <Struct/Rect.h>
+#include <Any/Enums.h>
+#include <Functions/sdl_ext.h>
+#include <Functions/fs_ext.h>
+#include <Functions/string_ext.h>
+#include <Functions/util.h>
 #include <Factory/ViewGroupFactory.h>
 #include <View/ViewGroup.h>
 #include <SDL.h>
@@ -12,15 +18,9 @@
 #include <SDL_image.h>
 #include <filesystem>
 #include <string>
-#include <Struct/Rect.h>
-#include <Any/Enums.h>
-#include <Functions/sdl_ext.h>
 #include <vector>
 #include "../Struct/Sprite.h"
 #include "../Functions/util.h"
-#include <Functions/fs_ext.h>
-#include <Functions/string_ext.h>
-#include <Functions/util.h>
 
 using ii887522::viewify::ViewGroupFactory;
 using ii887522::viewify::ViewGroup;
@@ -46,7 +46,7 @@ TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& input
   addImages(inputDirPath);
   writeSpriteNameEnumFile(inputDirPath, outputDirPath);
   rotateSomeImages();
-  sort<unsigned int, vector>(&indices, [this](const unsigned int& l, const unsigned int& r) {
+  sort<unsigned int, vector>(&indices, [this](const unsigned int& l, const unsigned int& r) {  // NOLINT(build/include_what_you_use)
     return sprites[l].rect.size.h < sprites[r].rect.size.h;
   });
 }
@@ -67,7 +67,7 @@ void TexturePackerViewGroupFactory::addImage(const string& filePath, const unsig
 
 void TexturePackerViewGroupFactory::rotateSomeImages() {
   for (auto& sprite : sprites) {
-    if (sprite.rect.size.w < sprite.rect.size.h) rotate(sprite);
+    if (sprite.rect.size.w < sprite.rect.size.h) rotate(&sprite);
   }
 }
 
@@ -94,8 +94,7 @@ ViewGroup TexturePackerViewGroupFactory::make(SDL_Renderer*const renderer, const
         Image::Builder{ renderer, surfaces[indices[indicesI]], position, Align::LEFT, sprites[indices[indicesI]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
           .setA(255u)
           .setDuration(1u)
-          .build()
-      );
+          .build());
       position.x += sprites[indices[indicesI]].rect.size.w + gap;
     }
     return Action::NONE;

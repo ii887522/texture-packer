@@ -1,7 +1,7 @@
 // Copyright ii887522
 
-#ifndef TEXTURE_PACKER_SRC_MAIN_ANY_COMMAND_LINE_H_
-#define TEXTURE_PACKER_SRC_MAIN_ANY_COMMAND_LINE_H_
+#ifndef TEXTURE_PACKER_SRC_MAIN_ANY_COMMANDLINE_H_
+#define TEXTURE_PACKER_SRC_MAIN_ANY_COMMANDLINE_H_
 
 #include <Struct/Size.h>
 #include <string>
@@ -44,4 +44,4 @@ class CommandLine final {
 
 }  // namespace ii887522::texturePacker
 
-#endif  // TEXTURE_PACKER_SRC_MAIN_ANY_COMMAND_LINE_H_
+#endif  // TEXTURE_PACKER_SRC_MAIN_ANY_COMMANDLINE_H_

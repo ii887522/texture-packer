@@ -1,13 +1,13 @@
 // Copyright ii887522
 
-#include "util.h"
+#include "util.h"  // NOLINT(build/include_subdir)
+#include <Functions/string_ext.h>
+#include <Functions/fs_ext.h>
+#include <Functions/util.h>
 #include <string>
 #include <filesystem>
 #include <vector>
 #include "../Struct/Sprite.h"
-#include <Functions/string_ext.h>
-#include <Functions/fs_ext.h>
-#include <Functions/util.h>
 
 using std::string;
 using std::filesystem::directory_iterator;
@@ -50,9 +50,9 @@ void writeSpriteNameEnumFile(const string& inputDirPath, const string& outputDir
   write<char, vector>(outputDirPath + "SpriteName.h", vector(content.begin(), content.end()));
 }
 
-void rotate(Sprite& sprite) {
-  swap(sprite.rect.size.w, sprite.rect.size.h);
-  sprite.isRotated = true;
+void rotate(Sprite*const sprite) {
+  swap(sprite->rect.size.w, sprite->rect.size.h);  // NOLINT(build/include_what_you_use)
+  sprite->isRotated = true;
 }
 
 }  // namespace ii887522::texturePacker

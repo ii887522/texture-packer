@@ -5,8 +5,8 @@
 #include "CommandLine.test.h"
 #include <cstring>
 #include <cassert>
-#include "../../main/Any/CommandLine.h"
 #include <stdexcept>
+#include "../../main/Any/CommandLine.h"
 
 using std::invalid_argument;
 

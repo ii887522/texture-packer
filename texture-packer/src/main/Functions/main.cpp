@@ -9,12 +9,12 @@
 #include <Any/App.h>
 #include <Struct/Size.h>
 #include <Struct/Color.h>
-#include "../ViewGroupFactory/TexturePackerViewGroupFactory.h"
 #include <Functions/control_flow.h>
-#include "../Any/CommandLine.h"
 #include <iostream>
 #include <stdexcept>
 #include <filesystem>
+#include "../ViewGroupFactory/TexturePackerViewGroupFactory.h"
+#include "../Any/CommandLine.h"
 #include <SDL_image.h>
 
 using ii887522::viewify::App;
