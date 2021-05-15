@@ -1,6 +1,8 @@
 # texture-packer
 It is a CLI tool used to generate texture atlases for graphics applications such as GUI, video games and so on to improve performance of these applications.
 
+<img src="docs/atlas.png" alt="Texture Atlas" width="770" /><br /><br />
+
 ## Table of Contents
 - [For developers reading this in GitHub](https://gitlab.com/ii887522/texture-packer#for-developers-reading-this-in-github)
 - [Usage](https://gitlab.com/ii887522/texture-packer#usage)
@@ -19,7 +21,7 @@ Please go to https://gitlab.com/ii887522/texture-packer to start contributing in
 
 ## Usage
 ```sh
-texture-packer ???
+texture-packer <input-directory-path>
 ```
 
 ## Coding Style
