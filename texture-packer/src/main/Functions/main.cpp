@@ -3,13 +3,13 @@
 #ifndef TEST
 
 #define ALLOCATOR_IMPLEMENTATIONS
-#include <Any/allocator.h>
+#include <nitro/Any/allocator.h>
 
 #include <SDL.h>
-#include <Any/App.h>
-#include <Struct/Size.h>
-#include <Struct/Color.h>
-#include <Functions/control_flow.h>
+#include <viewify/Any/App.h>
+#include <viewify/Struct/Size.h>
+#include <viewify/Struct/Color.h>
+#include <viewify/Functions/control_flow.h>
 #include <iostream>
 #include <stdexcept>
 #include <filesystem>
@@ -30,8 +30,9 @@ namespace ii887522::texturePacker {
 static int main(int argc, char** argv) try {
   const CommandLine commandLine{ argc, argv };
   commandLine.validate();
-  TexturePackerViewGroupFactory texturePackerViewGroupFactory{ commandLine.getInputDirPath(), commandLine.getOutputDirPath() };  // See also TexturePackerViewGroupFactory.h for more details
-  eventLoop(App{ "Texture Packer", Size{ commandLine.getAtlasSize().w, commandLine.getAtlasSize().h }, Color{ 0u, 0u, 0u }, &texturePackerViewGroupFactory, SDL_WINDOW_MINIMIZED });
+  TexturePackerViewGroupFactory texturePackerViewGroupFactory{ commandLine.getInputDirPath(), commandLine.getOutputDirPath(), commandLine.getAtlasSize() };
+    // See also TexturePackerViewGroupFactory.h for more details
+  eventLoop(App{ "Texture Packer", Size{ commandLine.getAtlasSize().w, commandLine.getAtlasSize().h }, Color{ 0u, 0u, 0u, 0u }, &texturePackerViewGroupFactory, SDL_WINDOW_MINIMIZED });
   return EXIT_SUCCESS;
 } catch (const invalid_argument&) {
   cerr << "Command Line: texture-packer <input-directory-path> <atlas-width> <atlas-height>\n";

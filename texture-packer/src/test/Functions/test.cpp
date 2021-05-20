@@ -3,7 +3,7 @@
 #ifdef TEST
 
 #define ALLOCATOR_IMPLEMENTATIONS
-#include <Any/allocator.h>
+#include <nitro/Any/allocator.h>
 
 #include "../Any/CommandLine.test.h"
 #include "util.test.h"  // NOLINT(build/include_subdir)
