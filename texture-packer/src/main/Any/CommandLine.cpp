@@ -1,10 +1,11 @@
 // Copyright ii887522
 
 #include "CommandLine.h"
-#include <Functions/math_ext.h>
+#include <nitro/Functions/math_ext.h>
 #include <string>
 #include <stdexcept>
 #include <filesystem>
+#include "constants.h"  // NOLINT(build/include_subdir)
 
 using std::string;
 using std::invalid_argument;
@@ -17,10 +18,10 @@ namespace ii887522::texturePacker {
 
 CommandLine::CommandLine(int argc, char** argv) {
   if (argc != 5u) throw invalid_argument{ "There must be only 4 command line arguments!" };
-  inputDirPath = argv[1u];
-  outputDirPath = argv[2u];
-  if (!(isUint(string{ argv[3u] }) && isUint(string{ argv[4u] }))) throw invalid_argument{ "Atlas width and atlas height must be unsigned integers!" };
-  atlasSize = Size{ static_cast<int>(parseUint(string{ argv[3u] })), static_cast<int>(parseUint(string{ argv[4u] })) };
+  inputDirPath = argv[INPUT_DIRECTORY_PATH_INDEX];
+  outputDirPath = argv[OUTPUT_DIRECTORY_PATH_INDEX];
+  if (!(isUint(string{ argv[ATLAS_WIDTH_INDEX] }) && isUint(string{ argv[ATLAS_HEIGHT_INDEX] }))) throw invalid_argument{ "Atlas width and atlas height must be unsigned integers!" };
+  atlasSize = Size{ static_cast<int>(parseUint(string{ argv[ATLAS_WIDTH_INDEX] })), static_cast<int>(parseUint(string{ argv[ATLAS_HEIGHT_INDEX] })) };
 }
 
 const string& CommandLine::getInputDirPath() const {
