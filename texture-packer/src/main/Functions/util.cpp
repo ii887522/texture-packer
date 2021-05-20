@@ -1,9 +1,9 @@
 // Copyright ii887522
 
 #include "util.h"  // NOLINT(build/include_subdir)
-#include <Functions/string_ext.h>
-#include <Functions/fs_ext.h>
-#include <Functions/util.h>
+#include <nitro/Functions/string_ext.h>
+#include <nitro/Functions/fs_ext.h>
+#include <nitro/Functions/util.h>
 #include <string>
 #include <filesystem>
 #include <vector>
@@ -52,7 +52,7 @@ void writeSpriteNameEnumFile(const string& inputDirPath, const string& outputDir
 
 void rotate(Sprite*const sprite) {
   swap(sprite->rect.size.w, sprite->rect.size.h);  // NOLINT(build/include_what_you_use)
-  sprite->isRotated = true;
+  sprite->isRotated = !sprite->isRotated;
 }
 
 }  // namespace ii887522::texturePacker

@@ -3,10 +3,10 @@
 #ifdef TEST
 
 #include "util.test.h"  // NOLINT(build/include_subdir)
-#include <Struct/Range.h>
-#include <Struct/Rect.h>
-#include <Struct/Point.h>
-#include <Struct/Size.h>
+#include <nitro/Struct/Range.h>
+#include <viewify/Struct/Rect.h>
+#include <viewify/Struct/Point.h>
+#include <viewify/Struct/Size.h>
 #include <cassert>
 #include <vector>
 #include "../../main/Functions/util.h"

@@ -75,6 +75,12 @@
     <ClInclude Include="src\test\Functions\util.test.h">
       <Filter>Test Header Files\Functions</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\Struct\SpriteRow.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\constants.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main\Any\CommandLine.cpp">
