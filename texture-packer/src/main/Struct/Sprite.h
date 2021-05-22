@@ -10,13 +10,11 @@ using ii887522::viewify::Rect;
 namespace ii887522::texturePacker {
 
 // It is a single part of a texture atlas.
-// See also TextureAtlas.h for more details
 struct Sprite final {
   unsigned int atlasIndex;
   Rect<int> rect;
   bool isRotated;
 
- public:
   explicit constexpr Sprite() { }
   explicit constexpr Sprite(const unsigned int atlasIndex, const Rect<int>& rect, const bool isRotated = false) : atlasIndex{ atlasIndex }, rect { rect }, isRotated{ isRotated } { }
 };

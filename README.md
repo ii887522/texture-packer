@@ -21,7 +21,7 @@ Please go to https://gitlab.com/ii887522/texture-packer to start contributing in
 
 ## Usage
 ```sh
-texture-packer <input-directory-path> <atlas-width> <atlas-height>
+texture-packer <input-directory-path> <output-directory-path> <atlas-width> <atlas-height>
 ```
 `<input-directory-path>`: it must exists and ends with either '/' or '\\'<br />
 `<output-directory-path>`: it must ends with either '/' or '\\'<br />

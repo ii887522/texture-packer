@@ -55,6 +55,9 @@
     <Filter Include="Test Header Files\Functions">
       <UniqueIdentifier>{8d883a04-1024-4cfa-97bc-0a8bca6890b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test Resource Files\images">
+      <UniqueIdentifier>{888a3a45-cf2d-442e-8d40-ea1e3832e045}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Any\CommandLine.h">
@@ -104,5 +107,202 @@
     <ClCompile Include="src\test\Functions\util.test.cpp">
       <Filter>Test Source Files\Functions</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\main\favicon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\test\images\0.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\1.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\2.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\3.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\4.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\5.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\6.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\7.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\8.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\9.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\10.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\11.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\12.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\13.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\14.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\15.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\16.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\17.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\18.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\19.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\20.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\21.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\22.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\23.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\24.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\25.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\26.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\27.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\28.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\29.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\30.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\31.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\32.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\33.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\34.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\35.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\36.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\37.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\38.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\39.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\40.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\41.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\42.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\43.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\44.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\45.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\46.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\47.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\48.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\49.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\50.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\51.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\52.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\53.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\54.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\55.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\56.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\57.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\58.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\59.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\60.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\61.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\62.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
+    <Image Include="res\test\images\63.png">
+      <Filter>Test Resource Files\images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

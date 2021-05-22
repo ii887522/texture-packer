@@ -7,6 +7,7 @@
 
 #include <SDL.h>
 #include <viewify/Any/App.h>
+#include <viewify/Any/Subsystems.h>
 #include <viewify/Struct/Size.h>
 #include <viewify/Struct/Color.h>
 #include <viewify/Functions/control_flow.h>
@@ -18,6 +19,7 @@
 #include <SDL_image.h>
 
 using ii887522::viewify::App;
+using ii887522::viewify::Subsystems;
 using ii887522::viewify::Size;
 using ii887522::viewify::Color;
 using ii887522::viewify::eventLoop;
@@ -30,12 +32,13 @@ namespace ii887522::texturePacker {
 static int main(int argc, char** argv) try {
   const CommandLine commandLine{ argc, argv };
   commandLine.validate();
+  const Subsystems subsystems;
   TexturePackerViewGroupFactory texturePackerViewGroupFactory{ commandLine.getInputDirPath(), commandLine.getOutputDirPath(), commandLine.getAtlasSize() };
-    // See also TexturePackerViewGroupFactory.h for more details
-  eventLoop(App{ "Texture Packer", Size{ commandLine.getAtlasSize().w, commandLine.getAtlasSize().h }, Color{ 0u, 0u, 0u, 0u }, &texturePackerViewGroupFactory, SDL_WINDOW_MINIMIZED });
+    // See also ../ViewGroupFactory/TexturePackerViewGroupFactory.h for more details
+  eventLoop(App{ "Texture Packer", commandLine.getAtlasSize(), Color{ 0u, 0u, 0u, 0u }, &texturePackerViewGroupFactory, SDL_WINDOW_MINIMIZED });
   return EXIT_SUCCESS;
 } catch (const invalid_argument&) {
-  cerr << "Command Line: texture-packer <input-directory-path> <atlas-width> <atlas-height>\n";
+  cerr << "Command Line: texture-packer <input-directory-path> <output-directory-path> <atlas-width> <atlas-height>\n";
   cerr << "Param <input-directory-path>: it must exists and ends with either '/' or '\\'\n";
   cerr << "Param <output-directory-path>: it must ends with either '/' or '\\'\n";
   cerr << "Param <atlas-width>: it must be equal to 2^n where n is a non-negative integer\n";
