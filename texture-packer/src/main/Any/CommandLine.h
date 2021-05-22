@@ -23,7 +23,10 @@ class CommandLine final {
 
   string inputDirPath;  // It ends with either '/' or '\\'
   string outputDirPath;  // It ends with either '/' or '\\'
-  Size<int> atlasSize;  // See also TextureAtlas.h for more details
+
+  // Atlas is an image that contains multiple smaller sprites.
+  // See also Sprite.h for more details
+  Size<int> atlasSize;
 
  public:
   explicit CommandLine(int argc, char** argv);

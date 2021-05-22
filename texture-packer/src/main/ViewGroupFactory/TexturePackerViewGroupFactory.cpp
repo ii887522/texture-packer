@@ -94,7 +94,7 @@ void TexturePackerViewGroupFactory::rotateSomeImages(const vector<unsigned int>&
 void TexturePackerViewGroupFactory::linearlyLayOutSprites(const Size<int>& atlasSize) {
   Point<int> position{ gap, gap };
   auto rowH{ 0 };
-  bool canReadRowH{ true };
+  auto canReadRowH{ true };
   auto rowFirstSpriteI{ indicesI };
   for (; indicesI != indices.size(); ++indicesI) {
     if (position.x + sprites[indices[indicesI]].rect.size.w + gap > atlasSize.w) {
@@ -124,7 +124,7 @@ void TexturePackerViewGroupFactory::pushUpSprites() {
   }
   y += sprites[indices[spriteRows.front().indices.min]].rect.size.h + gap;
   for (auto i{ 1u }; i != spriteRows.size(); ++i) {
-    auto aboveSpriteI{ spriteRows[i - 1].indices.min };
+    auto aboveSpriteI{ spriteRows[i - 1u].indices.min };
     for (auto j{ spriteRows[i].indices.min }; j <= spriteRows[i].indices.max; ++j) {
       while (
         !isOverlapX(
@@ -143,9 +143,9 @@ void TexturePackerViewGroupFactory::addImageViewsFromSpriteRows(ViewGroup*const 
     for (auto j{ spriteRows[i].indices.min }; j <= spriteRows[i].indices.max; ++j) {
       self->add(
         Image::Builder{ renderer, surfaces[indices[j]], sprites[indices[j]].rect.position, Align::LEFT, sprites[indices[j]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
-        .setA(255u)
-        .setDuration(1u)
-        .build());
+          .setA(255u)
+          .setDuration(1u)
+          .build());
     }
   }
 }
@@ -197,9 +197,9 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const se
         sprites[indices[i]].rect.position = Point{ position.x - sprites[indices[i]].rect.size.w + 1, position.y - sprites[indices[i]].rect.size.h + 1 };
         self->add(
           Image::Builder{ renderer, surfaces[indices[i]], sprites[indices[i]].rect.position, Align::LEFT, sprites[indices[i]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
-          .setA(255u)
-          .setDuration(1u)
-          .build());
+            .setA(255u)
+            .setDuration(1u)
+            .build());
         position.x -= sprites[indices[i]].rect.size.w + gap;
         canGoToNextRow = true;
       }
@@ -219,7 +219,7 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const se
 
 Action TexturePackerViewGroupFactory::linearlyFillAtlasRight(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize, const unsigned int spriteRowsI) {
   Point<int> position{
-      atlasSize.w - 1 - gap, sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1
+    atlasSize.w - 1 - gap, sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1
   };
   auto colW{ 0 };
   auto canSetColW{ true };
@@ -243,9 +243,9 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasRight(ViewGroup*const sel
         sprites[indices[i]].rect.position = Point{ position.x - sprites[indices[i]].rect.size.w + 1, position.y - sprites[indices[i]].rect.size.h + 1 };
         self->add(
           Image::Builder{ renderer, surfaces[indices[i]], sprites[indices[i]].rect.position, Align::LEFT, sprites[indices[i]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
-          .setA(255u)
-          .setDuration(1u)
-          .build());
+            .setA(255u)
+            .setDuration(1u)
+            .build());
         position.y -= sprites[indices[i]].rect.size.h + gap;
         canGoToNextCol = true;
       }
@@ -271,7 +271,7 @@ vector<unsigned int> TexturePackerViewGroupFactory::getIndicesReferencedByPendin
 
 void TexturePackerViewGroupFactory::prepareForNextAtlas() {
   auto aux{ getIndicesReferencedByPendingIndices() };
-  sort<unsigned int, vector>(&aux, [this](const unsigned int l, const unsigned int r) {
+  sort<unsigned int, vector>(&aux, [this](const unsigned int& l, const unsigned int& r) {
     return sprites[l].rect.size.h < sprites[r].rect.size.h;
   });
   indices.resize(aux.size());
@@ -285,7 +285,7 @@ Action TexturePackerViewGroupFactory::fillLShape(ViewGroup*const self, SDL_Rende
   rotateSomeImages(*currentPendingIndices, [](const unsigned int w, const unsigned int h) {
     return w > h;
   });
-  sort<unsigned int, vector>(currentPendingIndices, [this](const unsigned int l, const unsigned int r) {
+  sort<unsigned int, vector>(currentPendingIndices, [this](const unsigned int& l, const unsigned int& r) {
     return sprites[indices[l]].rect.size.w < sprites[indices[r]].rect.size.w;
   });
   if (linearlyFillAtlasRight(self, renderer, atlasSize, spriteRowsI) == Action::RETURN_FROM_CALLER) return Action::RETURN_FROM_CALLER;

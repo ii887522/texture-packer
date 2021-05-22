@@ -34,7 +34,7 @@ namespace ii887522::texturePacker {
 //
 // Not Thread Safe: it must only be used in main thread
 // See also viewify/View/ViewGroup.h for more details
-// See also Sprite.h for more details
+// See also ../Struct/Sprite.h for more details
 class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // remove copy semantics
   TexturePackerViewGroupFactory(const TexturePackerViewGroupFactory&) = delete;
@@ -45,11 +45,11 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   TexturePackerViewGroupFactory& operator=(TexturePackerViewGroupFactory&&) = delete;
 
   const string outputDirPath;  // It ends with either '/' or '\\'
-  vector<Sprite> sprites;  // See also Sprite.h for more details
+  vector<Sprite> sprites;  // See also ../Struct/Sprite.h for more details
   vector<SDL_Surface*> surfaces;
   vector<unsigned int> indices;
-  vector<SpriteRow> spriteRows;  // See also Sprite.h for more details
-  QuadTree spriteRects;  // See also Sprite.h for more details
+  vector<SpriteRow> spriteRows;  // See also ../Struct/Sprite.h for more details
+  QuadTree spriteRects;  // See also ../Struct/Sprite.h for more details
   vector<unsigned int> lPendingIndices;
   vector<unsigned int> rPendingIndices;
   vector<unsigned int>* currentPendingIndices;
@@ -58,7 +58,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   unsigned int indicesI;
 
   // Atlas is an image that contains multiple smaller sprites.
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   unsigned int atlasIndex;
 
   // Param inputDirPath: it must exists and ends with either '/' or '\\'
@@ -71,19 +71,20 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   void rotateSomeImages(const vector<unsigned int>& pendingIndices, const function<bool(const unsigned int, const unsigned int)>& compare);
 
   // Atlas is an image that contains multiple smaller sprites.
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   void linearlyLayOutSprites(const Size<int>& atlasSize);
 
+  // See also ../Struct/Sprite.h for more details
   void pushUpSprites();
 
   // Param self: it must not be assigned to nullptr or integer
   // Param renderer: it must not be assigned to nullptr or integer
-  // See also viewify/Any/View.h for more details
-  // See also Sprite.h for more details
+  // See also viewify/View/ViewGroup.h for more details
+  // See also ../Struct/Sprite.h for more details
   void addImageViewsFromSpriteRows(ViewGroup*const self, SDL_Renderer*const renderer);
 
   // Atlas is an image that contains multiple smaller sprites.
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   unsigned int getNearestSpriteRowToAtlasBottomRightCornerI(const Size<int>& atlasSize) const;
 
   // Atlas is an image that contains multiple smaller sprites.
@@ -92,7 +93,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // Param renderer: it must not be assigned to nullptr or integer
   // Param spriteRowsI: the atlas bottom region that below the sprite row referenced by this
   // See also viewify/Any/View.h for more details
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   Action linearlyFillAtlasBottom(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize, const unsigned int spriteRowsI);
 
   // Atlas is an image that contains multiple smaller sprites.
@@ -101,13 +102,13 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // Param renderer: it must not be assigned to nullptr or integer
   // Param spriteRowsI: the atlas right region that above the bottom border of sprite row referenced by this
   // See also viewify/Any/View.h for more details
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   Action linearlyFillAtlasRight(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize, const unsigned int spriteRowsI);
 
   vector<unsigned int> getIndicesReferencedByPendingIndices() const;
 
   // Atlas is an image that contains multiple smaller sprites.
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   void prepareForNextAtlas();
 
   // L Shape represents the atlas bottom region and right region where they are not allocated to any sprites.
@@ -116,7 +117,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // Param self: it must not be assigned to nullptr or integer
   // Param renderer: it must not be assigned to nullptr or integer
   // See also viewify/Any/View.h for more details
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   Action fillLShape(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize);
 
  public:
@@ -125,7 +126,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // Param inputDirPath: it must exists and ends with either '/' or '\\'
   // Param outputDirPath: it must ends with either '/' or '\\'
   // See also viewify/View/ViewGroup.h for more details
-  // See also Sprite.h for more details
+  // See also ../Struct/Sprite.h for more details
   explicit TexturePackerViewGroupFactory(const string& inputDirPath, const string& outputDirPath, const Size<int>& atlasSize);
 
   // Param renderer: it must not be assigned to nullptr or integer
