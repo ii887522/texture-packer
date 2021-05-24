@@ -44,6 +44,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   TexturePackerViewGroupFactory(TexturePackerViewGroupFactory&&) = delete;
   TexturePackerViewGroupFactory& operator=(TexturePackerViewGroupFactory&&) = delete;
 
+  SDL_Texture* atlas;
   const string outputDirPath;  // It ends with either '/' or '\\'
   vector<Sprite> sprites;  // See also ../Struct/Sprite.h for more details
   vector<SDL_Surface*> surfaces;

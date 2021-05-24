@@ -53,7 +53,7 @@ using std::function;
 
 namespace ii887522::texturePacker {
 
-TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& inputDirPath, const string& outputDirPath, const Size<int>& atlasSize) : ViewGroupFactory{ },
+TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& inputDirPath, const string& outputDirPath, const Size<int>& atlasSize) : ViewGroupFactory{ }, atlas{ nullptr },
   outputDirPath{ outputDirPath }, spriteRects{ Rect{ Point{ 0.f, 0.f }, static_cast<Size<float>>(atlasSize) } }, currentPendingIndices{ &lPendingIndices },
   nextPendingIndices{ &rPendingIndices }, gap{ 0 }, indicesI{ 0u }, atlasIndex{ 0u } {
   emptyDir(outputDirPath);
@@ -296,6 +296,8 @@ Action TexturePackerViewGroupFactory::fillLShape(ViewGroup*const self, SDL_Rende
 }
 
 ViewGroup TexturePackerViewGroupFactory::make(SDL_Renderer*const renderer, const Size<int>& size) {
+  atlas = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
+  SDL_SetRenderTarget(renderer, atlas);
   return ViewGroup{ renderer, Point{ 0, 0 }, [](ViewGroup&, SDL_Renderer*const) {
     return vector<View*>{ };
   }, [this, renderer, size](ViewGroup& self) {
@@ -321,6 +323,7 @@ ViewGroup TexturePackerViewGroupFactory::make(SDL_Renderer*const renderer, const
 
 TexturePackerViewGroupFactory::~TexturePackerViewGroupFactory() {
   write<Sprite, vector>(outputDirPath + "atlas.dat", sprites);
+  SDL_DestroyTexture(atlas);
 }
 
 }  // namespace ii887522::texturePacker
