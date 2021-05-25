@@ -2,11 +2,11 @@
 
 #include "CommandLine.h"
 #include <nitro/Functions/math_ext.h>
+#include <nitro/Functions/fs_ext.h>
 #include <string>
 #include <stdexcept>
 #include <filesystem>
 #include "constants.h"  // NOLINT(build/include_subdir)
-#include <nitro/Functions/fs_ext.h>
 
 using std::string;
 using std::invalid_argument;
