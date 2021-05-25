@@ -39,10 +39,10 @@ static int main(int argc, char** argv) try {
   return EXIT_SUCCESS;
 } catch (const invalid_argument&) {
   cerr << "Command Line: texture-packer <input-directory-path> <output-directory-path> <atlas-width> <atlas-height>\n";
-  cerr << "Param <input-directory-path>: it must exists and ends with either '/' or '\\'\n";
+  cerr << "Param <input-directory-path>: it must exists, has at least 1 png file and ends with either '/' or '\\'\n";
   cerr << "Param <output-directory-path>: it must ends with either '/' or '\\'\n";
-  cerr << "Param <atlas-width>: it must be equal to 2^n where n is a non-negative integer\n";
-  cerr << "Param <atlas-height>: it must be equal to 2^n where n is a non-negative integer\n";
+  cerr << "Param <atlas-width>: it must be equal to 2^n where n is a non-negative integer, and big enough to fill sprites\n";
+  cerr << "Param <atlas-height>: it must be equal to 2^n where n is a non-negative integer, and big enough to fill sprites\n";
   return EXIT_FAILURE;
 }
 

@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\favicon.png" />
+    <Image Include="res\test\d\0.png" />
+    <Image Include="res\test\e\0.png" />
+    <Image Include="res\test\g\0.png" />
+    <Image Include="res\test\g\1.png" />
+    <Image Include="res\test\h\0.png" />
+    <Image Include="res\test\h\1.png" />
     <Image Include="res\test\images\0.png" />
     <Image Include="res\test\images\1.png" />
     <Image Include="res\test\images\10.png" />
@@ -111,6 +117,16 @@
     <Image Include="res\test\images\7.png" />
     <Image Include="res\test\images\8.png" />
     <Image Include="res\test\images\9.png" />
+    <Image Include="res\test\i\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\test\c\a" />
+    <None Include="res\test\e\a" />
+    <None Include="res\test\f\a" />
+    <None Include="res\test\f\b" />
+    <None Include="res\test\h\a" />
+    <None Include="res\test\i\a" />
+    <None Include="res\test\i\b" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -210,12 +226,12 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x86;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x86;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x86;$(ProjectDir)..\libs\nitro-1.2.0\lib\x86\Debug;$(ProjectDir)..\libs\viewify-1.5.0\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x86;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x86;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x86;$(ProjectDir)..\libs\nitro-1.3.0\lib\x86\Debug;$(ProjectDir)..\libs\viewify-1.5.0\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;nitro.lib;viewify.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -229,12 +245,12 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\nitro-1.2.0\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\nitro-1.3.0\lib\x86\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>nitro.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -250,7 +266,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
     </ClCompile>
     <Link>
@@ -258,7 +274,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x86;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x86;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x86;$(ProjectDir)..\libs\nitro-1.2.0\lib\x86\Release;$(ProjectDir)..\libs\viewify-1.5.0\lib\x86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x86;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x86;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x86;$(ProjectDir)..\libs\nitro-1.3.0\lib\x86\Release;$(ProjectDir)..\libs\viewify-1.5.0\lib\x86\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;nitro.lib;viewify.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -272,12 +288,12 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x64;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x64;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x64;$(ProjectDir)..\libs\nitro-1.2.0\lib\x64\Debug;$(ProjectDir)..\libs\viewify-1.5.0\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x64;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x64;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x64;$(ProjectDir)..\libs\nitro-1.3.0\lib\x64\Debug;$(ProjectDir)..\libs\viewify-1.5.0\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;nitro.lib;viewify.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -291,12 +307,12 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\nitro-1.2.0\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\nitro-1.3.0\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>nitro.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -312,7 +328,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.2.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\include;$(ProjectDir)..\libs\SDL2_image-2.0.5\include;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\include;$(ProjectDir)..\libs\nitro-1.3.0\include;$(ProjectDir)..\libs\viewify-1.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
     </ClCompile>
     <Link>
@@ -320,7 +336,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x64;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x64;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x64;$(ProjectDir)..\libs\nitro-1.2.0\lib\x64\Release;$(ProjectDir)..\libs\viewify-1.5.0\lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\SDL2-2.0.12\lib\x64;$(ProjectDir)..\libs\SDL2_image-2.0.5\lib\x64;$(ProjectDir)..\libs\SDL2_ttf-2.0.15\lib\x64;$(ProjectDir)..\libs\nitro-1.3.0\lib\x64\Release;$(ProjectDir)..\libs\viewify-1.5.0\lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;nitro.lib;viewify.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
