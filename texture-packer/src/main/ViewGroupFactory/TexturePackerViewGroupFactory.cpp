@@ -25,6 +25,7 @@
 #include <vector>
 #include <cstring>
 #include <functional>
+#include <stdexcept>
 #include "../Struct/Sprite.h"
 #include "../Functions/util.h"
 #include "../Struct/SpriteRow.h"
@@ -50,6 +51,7 @@ using std::string;
 using std::vector;
 using std::to_string;
 using std::function;
+using std::invalid_argument;
 
 namespace ii887522::texturePacker {
 
@@ -57,7 +59,7 @@ TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& input
   outputDirPath{ outputDirPath }, spriteRects{ Rect{ Point{ 0.f, 0.f }, static_cast<Size<float>>(atlasSize) } }, currentPendingIndices{ &lPendingIndices },
   nextPendingIndices{ &rPendingIndices }, gap{ 0 }, indicesI{ 0u }, atlasIndex{ 0u } {
   emptyDir(outputDirPath);
-  addImages(inputDirPath);
+  addImages(inputDirPath, atlasSize);
   writeSpriteNameEnumFile(inputDirPath, outputDirPath);
   rotateImagesToMakeThemLonger();
   sort<unsigned int, vector>(&indices, [this](const unsigned int& l, const unsigned int& r) {  // NOLINT(build/include_what_you_use)
@@ -65,16 +67,18 @@ TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& input
   });
 }
 
-void TexturePackerViewGroupFactory::addImages(const string& inputDirPath) {
+void TexturePackerViewGroupFactory::addImages(const string& inputDirPath, const Size<int>& atlasSize) {
   auto i{ 0u };
   for (const auto& entry : directory_iterator{ inputDirPath }) {
-    addImage(entry.path().string(), i);
+    if (!(entry.path().string().ends_with(".png") || entry.path().string().ends_with(".PNG"))) continue;
+    addImage(entry.path().string(), i, atlasSize);
     ++i;
   }
 }
 
-void TexturePackerViewGroupFactory::addImage(const string& filePath, const unsigned int index) {
+void TexturePackerViewGroupFactory::addImage(const string& filePath, const unsigned int index, const Size<int>& atlasSize) {
   surfaces.push_back(IMG_Load(filePath.c_str()));
+  if (atlasSize.w < surfaces.back()->w + (gap << 1u) || atlasSize.h < surfaces.back()->h + (gap << 1u)) throw invalid_argument{ "Atlas size must be big enough to fill a sprite!" };
   sprites.push_back(Sprite{ 0u, Rect{ Point{ 0, 0 }, Size{ surfaces.back()->w, surfaces.back()->h } } });
   indices.push_back(index);
 }

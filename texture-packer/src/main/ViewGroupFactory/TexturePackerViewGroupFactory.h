@@ -62,10 +62,16 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // See also ../Struct/Sprite.h for more details
   unsigned int atlasIndex;
 
+  // Atlas is an image that contains multiple smaller sprites. It must only be called 1 time.
   // Param inputDirPath: it must exists and ends with either '/' or '\\'
-  void addImages(const string& inputDirPath);
+  // See also ../Struct/Sprite.h for more details
+  void addImages(const string& inputDirPath, const Size<int>& atlasSize);
 
-  void addImage(const string& filePath, const unsigned int index);
+  // Atlas is an image that contains multiple smaller sprites.
+  // See also ../Struct/Sprite.h for more details
+  void addImage(const string& filePath, const unsigned int index, const Size<int>& atlasSize);
+
+  // It must only be called 1 time.
   void rotateImagesToMakeThemLonger();
 
   // Param compare: it returns true if the image needs to be rotated
