@@ -23,8 +23,8 @@ string getSpriteNameEnumFileContent(const string& inputDirPath) {
   string content{
 R"(// Copyright ii887522
 
-#ifndef TEXTURE_PACKER_SRC_MAIN_SPRITE_NAME_H_
-#define TEXTURE_PACKER_SRC_MAIN_SPRITE_NAME_H_
+#ifndef TEXTURE_PACKER_SRC_MAIN_ANY_SPRITE_NAME_H_
+#define TEXTURE_PACKER_SRC_MAIN_ANY_SPRITE_NAME_H_
 
 namespace ii887522::texturePacker {
 
@@ -32,6 +32,7 @@ enum class SpriteName : unsigned int {
 )"
   };
   for (const auto& entry : directory_iterator{ inputDirPath }) {
+    if (!(entry.path().string().ends_with(".png") || entry.path().string().ends_with(".PNG"))) continue;
     auto spriteName{ getFileName(entry.path().string()) };
     toUpperCase(&spriteName);
     content += "\t_" + spriteName + ",\n";
@@ -41,7 +42,7 @@ R"(};
 
 }  // namespace ii887522::texturePacker
 
-#endif  // TEXTURE_PACKER_SRC_MAIN_SPRITE_NAME_H_
+#endif  // TEXTURE_PACKER_SRC_MAIN_ANY_SPRITE_NAME_H_
 )";
 }
 

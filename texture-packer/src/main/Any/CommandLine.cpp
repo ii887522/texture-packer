@@ -2,6 +2,7 @@
 
 #include "CommandLine.h"
 #include <nitro/Functions/math_ext.h>
+#include <nitro/Functions/fs_ext.h>
 #include <string>
 #include <stdexcept>
 #include <filesystem>
@@ -13,6 +14,7 @@ using std::filesystem::exists;
 using ii887522::nitro::isUint;
 using ii887522::nitro::parseUint;
 using ii887522::nitro::isPowerOfTwo;
+using ii887522::nitro::hasFileWithExtension;
 
 namespace ii887522::texturePacker {
 
@@ -33,8 +35,8 @@ const string& CommandLine::getOutputDirPath() const {
 }
 
 void CommandLine::validate() const {
-  if (!((inputDirPath.ends_with('/') || inputDirPath.ends_with('\\')) && exists(inputDirPath)))
-    throw invalid_argument{ "Input directory path must exists and ends with either '/' or '\\'!" };
+  if (!((inputDirPath.ends_with('/') || inputDirPath.ends_with('\\')) && exists(inputDirPath) && (hasFileWithExtension(inputDirPath, ".png") || hasFileWithExtension(inputDirPath, ".PNG"))))
+    throw invalid_argument{ "Input directory path must exists, has at least 1 png file and ends with either '/' or '\\'!" };
   if (!(outputDirPath.ends_with('/') || outputDirPath.ends_with('\\'))) throw invalid_argument{ "Output directory path must ends with either '/' or '\\'!" };
   if (!(isPowerOfTwo(atlasSize.w) && isPowerOfTwo(atlasSize.h))) throw invalid_argument{ "Atlas width and atlas height must be power of two!" };
 }

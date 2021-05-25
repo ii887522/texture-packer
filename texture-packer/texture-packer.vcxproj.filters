@@ -58,6 +58,27 @@
     <Filter Include="Test Resource Files\images">
       <UniqueIdentifier>{888a3a45-cf2d-442e-8d40-ea1e3832e045}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test Resource Files\c">
+      <UniqueIdentifier>{527f6c49-b367-450d-99b6-fdd96a24632b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\d">
+      <UniqueIdentifier>{fac7952b-3434-4664-8b90-06ddd69b984e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\e">
+      <UniqueIdentifier>{9ad97cbf-7959-461c-ba18-f1fe81914b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\f">
+      <UniqueIdentifier>{e0057477-cb1a-4d49-a232-8b7e287ff40b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\g">
+      <UniqueIdentifier>{8a077950-1986-48a8-8dbe-23ba97f2e8fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\h">
+      <UniqueIdentifier>{eb6ca809-16a5-4c68-a61a-674d3c403aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Resource Files\i">
+      <UniqueIdentifier>{9cdc4c4a-4bef-4502-8cee-3d72670edd29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Any\CommandLine.h">
@@ -304,5 +325,49 @@
     <Image Include="res\test\images\63.png">
       <Filter>Test Resource Files\images</Filter>
     </Image>
+    <Image Include="res\test\d\0.png">
+      <Filter>Test Resource Files\d</Filter>
+    </Image>
+    <Image Include="res\test\e\0.png">
+      <Filter>Test Resource Files\e</Filter>
+    </Image>
+    <Image Include="res\test\g\0.png">
+      <Filter>Test Resource Files\g</Filter>
+    </Image>
+    <Image Include="res\test\g\1.png">
+      <Filter>Test Resource Files\g</Filter>
+    </Image>
+    <Image Include="res\test\h\0.png">
+      <Filter>Test Resource Files\h</Filter>
+    </Image>
+    <Image Include="res\test\h\1.png">
+      <Filter>Test Resource Files\h</Filter>
+    </Image>
+    <Image Include="res\test\i\0.png">
+      <Filter>Test Resource Files\i</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\test\c\a">
+      <Filter>Test Resource Files\c</Filter>
+    </None>
+    <None Include="res\test\e\a">
+      <Filter>Test Resource Files\e</Filter>
+    </None>
+    <None Include="res\test\f\a">
+      <Filter>Test Resource Files\f</Filter>
+    </None>
+    <None Include="res\test\f\b">
+      <Filter>Test Resource Files\f</Filter>
+    </None>
+    <None Include="res\test\h\a">
+      <Filter>Test Resource Files\h</Filter>
+    </None>
+    <None Include="res\test\i\a">
+      <Filter>Test Resource Files\i</Filter>
+    </None>
+    <None Include="res\test\i\b">
+      <Filter>Test Resource Files\i</Filter>
+    </None>
   </ItemGroup>
 </Project>
