@@ -9,15 +9,15 @@ using ii887522::nitro::Range;
 
 namespace ii887522::texturePacker {
 
-// See also Sprite.h for more details
+/// <summary>See also Sprite.h for more details</summary>
 struct SpriteRow final {
   Range<unsigned int> indices;
   int width;
 
-  // See also Sprite.h for more details
+  /// <summary>See also Sprite.h for more details</summary>
   explicit constexpr SpriteRow() { }
 
-  // See also Sprite.h for more details
+  /// <summary>See also Sprite.h for more details</summary>
   explicit constexpr SpriteRow(const Range<unsigned int>& indices, const int width) : indices{ indices }, width{ width } { }
 };
 

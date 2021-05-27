@@ -9,7 +9,7 @@ using ii887522::viewify::Rect;
 
 namespace ii887522::texturePacker {
 
-// It is a single part of a texture atlas.
+/// <summary>It is a single part of a texture atlas.</summary>
 struct Sprite final {
   unsigned int atlasIndex;
   Rect<int> rect;
