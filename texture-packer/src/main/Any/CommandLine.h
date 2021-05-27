@@ -11,7 +11,7 @@ using std::string;
 
 namespace ii887522::texturePacker {
 
-// Not Thread Safe
+/// <summary>Not Thread Safe</summary>
 class CommandLine final {
   // remove copy semantics
   CommandLine(const CommandLine&) = delete;
@@ -21,23 +21,28 @@ class CommandLine final {
   CommandLine(CommandLine&&) = delete;
   CommandLine& operator=(CommandLine&&) = delete;
 
-  string inputDirPath;  // It ends with either '/' or '\\'
-  string outputDirPath;  // It ends with either '/' or '\\'
+  /// <summary>It ends with either '/' or '\\'</summary>
+  string inputDirPath;
 
-  // Atlas is an image that contains multiple smaller sprites.
-  // See also Sprite.h for more details
+  /// <summary>It ends with either '/' or '\\'</summary>
+  string outputDirPath;
+
+  /// <summary>
+  ///   <para>Atlas is an image that contains multiple smaller sprites.</para>
+  ///   <para>See also ../Struct/Sprite.h for more details.</para>
+  /// </summary>
   Size<int> atlasSize;
 
  public:
   explicit CommandLine(int argc, char** argv);
 
-  // Return: it ends with either '/' or '\\'
+  /// <returns>It ends with either '/' or '\\'</returns>
   const string& getInputDirPath() const;
 
-  // Return: it ends with either '/' or '\\'
+  /// <returns>it ends with either '/' or '\\'</returns>
   const string& getOutputDirPath() const;
 
-  // See also TextureAtlas.h for more details
+  /// <summary>See also TextureAtlas.h for more details</summary>
   constexpr const Size<int>& getAtlasSize() const {
     return atlasSize;
   }

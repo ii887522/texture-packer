@@ -16,15 +16,15 @@ using ii887522::viewify::Point;
 
 namespace ii887522::texturePacker {
 
-// Param inputDirPath: it must exists and ends with either '/' or '\\'
+/// <param name="inputDirPath">It must exists and ends with either '/' or '\\'</param>
 string getSpriteNameEnumFileContent(const string& inputDirPath);
 
-// Param inputDirPath: it must exists and ends with either '/' or '\\'
-// Param outputDirPath: it must ends with either '/' or '\\'
+/// <param name="inputDirPath">It must exists and ends with either '/' or '\\'</param>
+/// <param name="outputDirPath">It must ends with either '/' or '\\'</param>
 void writeSpriteNameEnumFile(const string& inputDirPath, const string& outputDirPath);
 
-// Param sprite: it must not be assigned to nullptr or integer
-// See also Sprite.h for more details
+/// <summary>See also Sprite.h for more details</summary>
+/// <param name="sprite">It must not be assigned to nullptr or integer</param>
 void rotate(Sprite*const sprite);
 
 }  // namespace ii887522::texturePacker
