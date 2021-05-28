@@ -92,7 +92,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   void rotateImagesToMakeThemLonger();
 
   /// <param name="compare">It returns true if the image needs to be rotated</param>
-  void rotateSomeImages(const vector<unsigned int>& pendingIndices, const function<bool(const unsigned int, const unsigned int)>& compare);
+  void rotateSomeImages(const vector<unsigned int>& pendingIndices, const function<bool(const unsigned int w, const unsigned int h)>& compare);
 
   /// <summary>
   ///   <para>Atlas is an image that contains multiple smaller sprites.</para>

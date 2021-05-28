@@ -89,7 +89,7 @@ void TexturePackerViewGroupFactory::rotateImagesToMakeThemLonger() {
   }
 }
 
-void TexturePackerViewGroupFactory::rotateSomeImages(const vector<unsigned int>& pendingIndices, const function<bool(const unsigned int, const unsigned int)>& compare) {
+void TexturePackerViewGroupFactory::rotateSomeImages(const vector<unsigned int>& pendingIndices, const function<bool(const unsigned int w, const unsigned int h)>& compare) {
   for (const auto i : pendingIndices) {
     if (compare(sprites[indices[i]].rect.size.w, sprites[indices[i]].rect.size.h)) rotate(&sprites[indices[i]]);
   }
