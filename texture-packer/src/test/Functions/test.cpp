@@ -13,7 +13,7 @@ namespace ii887522::texturePacker {
 static int main() {
   testCommandLine();
   testUtil();
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 }  // namespace ii887522::texturePacker
