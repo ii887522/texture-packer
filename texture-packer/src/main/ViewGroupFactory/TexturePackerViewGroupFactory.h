@@ -35,7 +35,7 @@ namespace ii887522::texturePacker {
 ///   <para>Not Thread Safe: it must only be used in main thread</para>
 ///   <para>See also viewify/View/ViewGroup.h for more details</para>
 ///   <para>See also ../Struct/Sprite.h for more details</para>
-/// </summary> 
+/// </summary>
 class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   // remove copy semantics
   TexturePackerViewGroupFactory(const TexturePackerViewGroupFactory&) = delete;
