@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <vector>
 #include "../Struct/Sprite.h"
+#include "../Any/constants.h"
 
 using std::string;
 using std::filesystem::directory_iterator;
@@ -32,7 +33,7 @@ enum class SpriteName : unsigned int {
 )"
   };
   for (const auto& entry : directory_iterator{ inputDirPath }) {
-    if (!(entry.path().string().ends_with(".png") || entry.path().string().ends_with(".PNG"))) continue;
+    if (!(entry.path().string().ends_with(LOWER_CASE_IMAGE_EXTENSION_NAME) || entry.path().string().ends_with(UPPER_CASE_IMAGE_EXTENSION_NAME))) continue;
     auto spriteName{ getFileName(entry.path().string()) };
     toUpperCase(&spriteName);
     content += "\t_" + spriteName + ",\n";

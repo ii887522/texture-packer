@@ -24,7 +24,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 0, 0 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 0);
     assert(sprite.rect.position.y == 0);
     assert(sprite.rect.size.w == 1);
@@ -34,7 +34,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 0 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 0);
     assert(sprite.rect.size.w == 1);
@@ -44,7 +44,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 1);
     assert(sprite.rect.size.w == 1);
@@ -54,7 +54,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 2, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 1);
     assert(sprite.rect.size.w == 1);
@@ -64,7 +64,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 1, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 1);
     assert(sprite.rect.size.w == 2);
@@ -74,7 +74,7 @@ void testRotate() {
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 2, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 0u);
+    assert(sprite.atlasI == 0u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 1);
     assert(sprite.rect.size.w == 2);
@@ -84,7 +84,7 @@ void testRotate() {
   {
     Sprite sprite{ 1u, Rect{ Point{ 1, 1 }, Size{ 2, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasIndex == 1u);
+    assert(sprite.atlasI == 1u);
     assert(sprite.rect.position.x == 1);
     assert(sprite.rect.position.y == 1);
     assert(sprite.rect.size.w == 2);
