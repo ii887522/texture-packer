@@ -9,17 +9,22 @@ const { request } = octokitRequest
 
 const version = process.argv[2]
 const accessToken = process.argv[3]
+const projectName = 'texture-packer'
+const bundleOutDirPath = 'libs/'
+const archiveExtensionName = 'zip'
+const appDirPath = `${bundleOutDirPath}${projectName}-${version}/`
 
 async function bundleCode() {
-  ensureDirSync(`libs/texture-packer-${version}/`)
-  return copy('texture-packer/Release/', `libs/texture-packer-${version}/`, { recursive: true, filter: (src, dest) => {
+  ensureDirSync(appDirPath)
+  return copy(`${projectName}/Release/`, appDirPath, { recursive: true, filter: (src, dest) => {
     return src.endsWith('/') || src.endsWith('.dll') || src.endsWith('.exe')
   } })
 }
 
 async function bundleResources() {
-  ensureDirSync(`libs/texture-packer-${version}/res/main/`)
-  return copy('texture-packer/res/main/', `libs/texture-packer-${version}/res/main/`, { recursive: true })
+  const resDirPath = `${appDirPath}res/main/`
+  ensureDirSync(resDirPath)
+  return copy(`${projectName}/res/main/`, resDirPath, { recursive: true })
 }
 
 async function bundle() {
@@ -30,23 +35,24 @@ async function bundle() {
 }
 
 async function zip() {
-  const archive = archiver('zip', { zlib: { level: 9 } })
+  const archive = archiver(archiveExtensionName, { zlib: { level: 9 } })
   archive.on('warning', err => {
     if (err.code == 'ENOENT') console.log(err)
     else throw err
   }).on('error', err => {
     throw err
-  }).pipe(createWriteStream(`libs/texture-packer-${version}.zip`))
-  return archive.directory(`libs/texture-packer-${version}/`, `texture-packer-${version}/`).finalize()
+  }).pipe(createWriteStream(`${bundleOutDirPath}${projectName}-${version}.${archiveExtensionName}`))
+  return archive.directory(appDirPath, `${projectName}-${version}/`).finalize()
 }
 
 async function publish() {
+  const owner = 'ii887522'
   const result = await request('POST /repos/{owner}/{repo}/releases', {
     headers: {
       authorization: `token ${accessToken}`
     },
-    owner: 'ii887522',
-    repo: 'texture-packer',
+    owner,
+    repo: projectName,
     tag_name: `v${version}`,
     name: `${version}`
   })
@@ -56,17 +62,17 @@ async function publish() {
       'content-type': 'application/zip'
     },
     baseUrl: 'https://uploads.github.com',
-    owner: 'ii887522',
-    repo: 'texture-packer',
+    owner,
+    repo: projectName,
     release_id: result.data.id,
-    name: `texture-packer-${version}.zip`,
-    data: await readFile(`libs/texture-packer-${version}.zip`)
+    name: `${projectName}-${version}.${archiveExtensionName}`,
+    data: await readFile(`${bundleOutDirPath}${[projectName]}-${version}.${archiveExtensionName}`)
   })
 }
 
 function clean() {
-  remove(`libs/texture-packer-${version}`)
-  remove(`libs/texture-packer-${version}.zip`)
+  remove(`${bundleOutDirPath}${projectName}-${version}`)
+  remove(`${bundleOutDirPath}${projectName}-${version}.${archiveExtensionName}`)
 }
 
 (async () => {

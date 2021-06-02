@@ -29,6 +29,8 @@ using std::function;
 
 namespace ii887522::texturePacker {
 
+constexpr auto GAP{ 0 };
+
 /// <summary>
 ///   <para>Texture Packer is a CLI tool used to generate texture atlases for graphics applications such as GUI, video games and so on to improve performance of these applications.</para>
 ///   <para>Atlas is an image that contains multiple smaller sprites.</para>
@@ -66,14 +68,13 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   vector<unsigned int> rPendingIndices;
   vector<unsigned int>* currentPendingIndices;
   vector<unsigned int>* nextPendingIndices;
-  const int gap;
   unsigned int indicesI;
 
   /// <summary>
   ///   <para>Atlas is an image that contains multiple smaller sprites.</para>
   ///   <para>See also ../Struct/Sprite.h for more details</para>
   /// </summary>
-  unsigned int atlasIndex;
+  unsigned int atlasI;
 
   /// <summary>
   ///   <para>Atlas is an image that contains multiple smaller sprites. It must only be called 1 time.</para>
@@ -86,7 +87,7 @@ class TexturePackerViewGroupFactory final : public ViewGroupFactory {
   ///   <para>Atlas is an image that contains multiple smaller sprites.</para>
   ///   <para>See also ../Struct/Sprite.h for more details</para>
   /// </summary>
-  void addImage(const string& filePath, const unsigned int index, const Size<int>& atlasSize);
+  void addImage(const string& filePath, const unsigned int i, const Size<int>& atlasSize);
 
   /// <summary>It must only be called 1 time.</summary>
   void rotateImagesToMakeThemLonger();
