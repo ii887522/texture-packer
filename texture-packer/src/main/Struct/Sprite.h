@@ -11,12 +11,12 @@ namespace ii887522::texturePacker {
 
 /// <summary>It is a single part of a texture atlas.</summary>
 struct Sprite final {
-  unsigned int atlasIndex;
+  unsigned int atlasI;
   Rect<int> rect;
   bool isRotated;
 
   explicit constexpr Sprite() { }
-  explicit constexpr Sprite(const unsigned int atlasIndex, const Rect<int>& rect, const bool isRotated = false) : atlasIndex{ atlasIndex }, rect { rect }, isRotated{ isRotated } { }
+  explicit constexpr Sprite(const unsigned int atlasI, const Rect<int>& rect, const bool isRotated = false) : atlasI{ atlasI }, rect{ rect }, isRotated{ isRotated } { }
 };
 
 }  // namespace ii887522::texturePacker

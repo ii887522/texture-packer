@@ -19,10 +19,10 @@ It is a CLI tool used to generate texture atlases for graphics applications such
 ```sh
 texture-packer <input-directory-path> <output-directory-path> <atlas-width> <atlas-height>
 ```
-`<input-directory-path>`: it must exists and ends with either '/' or '\\'<br />
+`<input-directory-path>`: it must exists, has at least 1 png file and ends with either '/' or '\\'<br />
 `<output-directory-path>`: it must ends with either '/' or '\\'<br />
-`<atlas-width>`: it must be equal to 2<sup>n</sup> where n is a non-negative integer<br />
-`<atlas-height>`: it must be equal to 2<sup>n</sup> where n is a non-negative integer<br />
+`<atlas-width>`: it must be equal to 2<sup>n</sup> where n is a non-negative integer, and big enough to fill sprites<br />
+`<atlas-height>`: it must be equal to 2<sup>n</sup> where n is a non-negative integer, and big enough to fill sprites<br />
 
 ## Coding Style
 This project follows [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html). Please familiarize yourself with the rules provided

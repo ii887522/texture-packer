@@ -5,11 +5,14 @@
 
 namespace ii887522::texturePacker {
 
-constexpr auto PROGRAM_NAME_INDEX{ 0u };
-constexpr auto INPUT_DIRECTORY_PATH_INDEX{ 1u };
-constexpr auto OUTPUT_DIRECTORY_PATH_INDEX{ 2u };
-constexpr auto ATLAS_WIDTH_INDEX{ 3u };
-constexpr auto ATLAS_HEIGHT_INDEX{ 4u };
+constexpr auto COMMAND_LINE_ARGS_REQUIRED{ 4u };
+constexpr auto PROGRAM_NAME_I{ 0u };
+constexpr auto INPUT_DIRECTORY_PATH_I{ 1u };
+constexpr auto OUTPUT_DIRECTORY_PATH_I{ 2u };
+constexpr auto ATLAS_WIDTH_I{ 3u };
+constexpr auto ATLAS_HEIGHT_I{ 4u };
+constexpr auto LOWER_CASE_IMAGE_EXTENSION_NAME{ ".png" };
+constexpr auto UPPER_CASE_IMAGE_EXTENSION_NAME{ ".PNG" };
 
 }  // namespace ii887522::texturePacker
 

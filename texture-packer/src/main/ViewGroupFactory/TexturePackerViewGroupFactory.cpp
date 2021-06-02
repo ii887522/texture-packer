@@ -29,6 +29,7 @@
 #include "../Struct/Sprite.h"
 #include "../Functions/util.h"
 #include "../Struct/SpriteRow.h"
+#include "../Any/constants.h"
 
 using ii887522::viewify::ViewGroupFactory;
 using ii887522::viewify::ViewGroup;
@@ -57,7 +58,7 @@ namespace ii887522::texturePacker {
 
 TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& inputDirPath, const string& outputDirPath, const Size<int>& atlasSize) : ViewGroupFactory{ }, atlas{ nullptr },
   outputDirPath{ outputDirPath }, spriteRects{ Rect{ Point{ 0.f, 0.f }, static_cast<Size<float>>(atlasSize) } }, currentPendingIndices{ &lPendingIndices },
-  nextPendingIndices{ &rPendingIndices }, gap{ 0 }, indicesI{ 0u }, atlasIndex{ 0u } {
+  nextPendingIndices{ &rPendingIndices }, indicesI{ 0u }, atlasI{ 0u } {
   emptyDir(outputDirPath);
   addImages(inputDirPath, atlasSize);
   writeSpriteNameEnumFile(inputDirPath, outputDirPath);
@@ -70,17 +71,20 @@ TexturePackerViewGroupFactory::TexturePackerViewGroupFactory(const string& input
 void TexturePackerViewGroupFactory::addImages(const string& inputDirPath, const Size<int>& atlasSize) {
   auto i{ 0u };
   for (const auto& entry : directory_iterator{ inputDirPath }) {
-    if (!(entry.path().string().ends_with(".png") || entry.path().string().ends_with(".PNG"))) continue;
+    if (!(entry.path().string().ends_with(LOWER_CASE_IMAGE_EXTENSION_NAME) || entry.path().string().ends_with(UPPER_CASE_IMAGE_EXTENSION_NAME))) continue;
     addImage(entry.path().string(), i, atlasSize);
     ++i;
   }
 }
 
-void TexturePackerViewGroupFactory::addImage(const string& filePath, const unsigned int index, const Size<int>& atlasSize) {
+void TexturePackerViewGroupFactory::addImage(const string& filePath, const unsigned int i, const Size<int>& atlasSize) {
   surfaces.push_back(IMG_Load(filePath.c_str()));
-  if (atlasSize.w < surfaces.back()->w + (gap << 1u) || atlasSize.h < surfaces.back()->h + (gap << 1u)) throw invalid_argument{ "Atlas size must be big enough to fill a sprite!" };
+  if (
+    atlasSize.w < surfaces.back()->w + (GAP << 1u)  /* which means atlasSize.w < surfaces.back()->w + GAP * 2 */ ||
+    atlasSize.h < surfaces.back()->h + (GAP << 1u)  /* which means atlasSize.h < surfaces.back()->h + GAP * 2 */)
+    throw invalid_argument{"Atlas size must be big enough to fill a sprite!"};
   sprites.push_back(Sprite{ 0u, Rect{ Point{ 0, 0 }, Size{ surfaces.back()->w, surfaces.back()->h } } });
-  indices.push_back(index);
+  indices.push_back(i);
 }
 
 void TexturePackerViewGroupFactory::rotateImagesToMakeThemLonger() {
@@ -96,15 +100,15 @@ void TexturePackerViewGroupFactory::rotateSomeImages(const vector<unsigned int>&
 }
 
 void TexturePackerViewGroupFactory::linearlyLayOutSprites(const Size<int>& atlasSize) {
-  Point<int> position{ gap, gap };
+  Point<int> position{ GAP, GAP };
   auto rowH{ 0 };
   auto canReadRowH{ true };
   auto rowFirstSpriteI{ indicesI };
   for (; indicesI != indices.size(); ++indicesI) {
-    if (position.x + sprites[indices[indicesI]].rect.size.w + gap > atlasSize.w) {
-      position.x = gap;
-      position.y += rowH + gap;
-      if (position.y + sprites[indices[indicesI]].rect.size.h + gap > atlasSize.h) break;
+    if (position.x + sprites[indices[indicesI]].rect.size.w + GAP > atlasSize.w) {
+      position.x = GAP;
+      position.y += rowH + GAP;
+      if (position.y + sprites[indices[indicesI]].rect.size.h + GAP > atlasSize.h) break;
       spriteRows.push_back(SpriteRow{ Range{ rowFirstSpriteI, indicesI - 1u }, sprites[indices[indicesI - 1u]].rect.position.x + sprites[indices[indicesI - 1u]].rect.size.w });
       rowFirstSpriteI = indicesI;
       canReadRowH = true;
@@ -113,32 +117,32 @@ void TexturePackerViewGroupFactory::linearlyLayOutSprites(const Size<int>& atlas
       rowH = sprites[indices[indicesI]].rect.size.h;
       canReadRowH = false;
     }
-    sprites[indices[indicesI]].atlasIndex = atlasIndex;
+    sprites[indices[indicesI]].atlasI = atlasI;
     sprites[indices[indicesI]].rect.position.x = position.x;
-    position.x += sprites[indices[indicesI]].rect.size.w + gap;
+    position.x += sprites[indices[indicesI]].rect.size.w + GAP;
   }
   spriteRows.push_back(SpriteRow{ Range{ rowFirstSpriteI, indicesI - 1u }, sprites[indices[indicesI - 1u]].rect.position.x + sprites[indices[indicesI - 1u]].rect.size.w });
 }
 
 void TexturePackerViewGroupFactory::pushUpSprites() {
-  auto y{ gap };
+  auto y{ GAP };
   for (auto i{ spriteRows.front().indices.min }; i <= spriteRows.front().indices.max; ++i) {
-    sprites[indices[i]].rect.position.y = gap;
+    sprites[indices[i]].rect.position.y = GAP;
     spriteRects.add(static_cast<Rect<float>>(sprites[indices[i]].rect));
   }
-  y += sprites[indices[spriteRows.front().indices.min]].rect.size.h + gap;
+  y += sprites[indices[spriteRows.front().indices.min]].rect.size.h + GAP;
   for (auto i{ 1u }; i != spriteRows.size(); ++i) {
     auto aboveSpriteI{ spriteRows[i - 1u].indices.min };
     for (auto j{ spriteRows[i].indices.min }; j <= spriteRows[i].indices.max; ++j) {
       while (
         !isOverlapX(
           sprites[indices[j]].rect.position.x,
-          Range{ sprites[indices[aboveSpriteI]].rect.position.x, sprites[indices[aboveSpriteI]].rect.position.x + sprites[indices[aboveSpriteI]].rect.size.w + gap }))
+          Range{ sprites[indices[aboveSpriteI]].rect.position.x, sprites[indices[aboveSpriteI]].rect.position.x + sprites[indices[aboveSpriteI]].rect.size.w + GAP }))
         ++aboveSpriteI;
-      sprites[indices[j]].rect.position.y = sprites[indices[aboveSpriteI]].rect.position.y + sprites[indices[aboveSpriteI]].rect.size.h + gap;
+      sprites[indices[j]].rect.position.y = sprites[indices[aboveSpriteI]].rect.position.y + sprites[indices[aboveSpriteI]].rect.size.h + GAP;
       spriteRects.add(static_cast<Rect<float>>(sprites[indices[j]].rect));
     }
-    y += sprites[indices[spriteRows[i].indices.min]].rect.size.h + gap;
+    y += sprites[indices[spriteRows[i].indices.min]].rect.size.h + GAP;
   }
 }
 
@@ -148,7 +152,7 @@ void TexturePackerViewGroupFactory::addImageViewsFromSpriteRows(ViewGroup*const 
       self->add(
         Image::Builder{ renderer, surfaces[indices[j]], sprites[indices[j]].rect.position, Align::LEFT, sprites[indices[j]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
           .setA(255u)
-          .setDuration(1u)
+          .setDuration(1u)  // See also ii887522::viewify::Image::Builder::setDuration(const unsigned int) for more details
           .build());
     }
   }
@@ -174,7 +178,7 @@ unsigned int TexturePackerViewGroupFactory::getNearestSpriteRowToAtlasBottomRigh
 }
 
 Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize, const unsigned int spriteRowsI) {
-  Point<int> position{ atlasSize.w - 1 - gap, atlasSize.h - 1 - gap };
+  Point<int> position{ atlasSize.w - 1 - GAP, atlasSize.h - 1 - GAP };
   auto rowH{ 0 };
   auto canSetRowH{ true };
   bool canGoToNextRow;
@@ -184,11 +188,11 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const se
     canGoToNextRow = false;
     for (const auto i : *currentPendingIndices) {
       if (
-        position.x - sprites[indices[i]].rect.size.w - gap < -1 || spriteRects.isAnyRectHit(
+        position.x - sprites[indices[i]].rect.size.w - GAP < -1 || spriteRects.isAnyRectHit(
           Rect{
-            Point{ position.x - sprites[indices[i]].rect.size.w + 1.f - gap, position.y - sprites[indices[i]].rect.size.h + 1.f - gap },
-            Size{ static_cast<float>(sprites[indices[i]].rect.size.w + gap), static_cast<float>(sprites[indices[i]].rect.size.h + gap) }
-          }) || position.y - sprites[indices[i]].rect.size.h - gap <
+            Point{ position.x - sprites[indices[i]].rect.size.w + 1.f - GAP, position.y - sprites[indices[i]].rect.size.h + 1.f - GAP },
+            Size{ static_cast<float>(sprites[indices[i]].rect.size.w + GAP), static_cast<float>(sprites[indices[i]].rect.size.h + GAP) }
+          }) || position.y - sprites[indices[i]].rect.size.h - GAP <
         sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1
       ) {
         nextPendingIndices->push_back(i);
@@ -197,19 +201,19 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const se
           rowH = sprites[indices[i]].rect.size.h;
           canSetRowH = false;
         }
-        sprites[indices[i]].atlasIndex = atlasIndex;
+        sprites[indices[i]].atlasI = atlasI;
         sprites[indices[i]].rect.position = Point{ position.x - sprites[indices[i]].rect.size.w + 1, position.y - sprites[indices[i]].rect.size.h + 1 };
         self->add(
           Image::Builder{ renderer, surfaces[indices[i]], sprites[indices[i]].rect.position, Align::LEFT, sprites[indices[i]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
             .setA(255u)
-            .setDuration(1u)
+            .setDuration(1u)  // See also ii887522::viewify::Image::Builder::setDuration(const unsigned int) for more details
             .build());
-        position.x -= sprites[indices[i]].rect.size.w + gap;
+        position.x -= sprites[indices[i]].rect.size.w + GAP;
         canGoToNextRow = true;
       }
     }
-    position.x = atlasSize.w - 1 - gap;
-    position.y -= rowH + gap;
+    position.x = atlasSize.w - 1 - GAP;
+    position.y -= rowH + GAP;
     canSetRowH = true;
     currentPendingIndices->clear();
     ii887522::nitro::swap(currentPendingIndices, nextPendingIndices);
@@ -223,7 +227,7 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasBottom(ViewGroup*const se
 
 Action TexturePackerViewGroupFactory::linearlyFillAtlasRight(ViewGroup*const self, SDL_Renderer*const renderer, const Size<int>& atlasSize, const unsigned int spriteRowsI) {
   Point<int> position{
-    atlasSize.w - 1 - gap, sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1
+    atlasSize.w - 1 - GAP, sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1
   };
   auto colW{ 0 };
   auto canSetColW{ true };
@@ -232,10 +236,10 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasRight(ViewGroup*const sel
     canGoToNextCol = false;
     for (const auto i : *currentPendingIndices) {
       if (
-        position.y - sprites[indices[i]].rect.size.h - gap < -1 || spriteRects.isAnyRectHit(
+        position.y - sprites[indices[i]].rect.size.h - GAP < -1 || spriteRects.isAnyRectHit(
           Rect{
-            Point{ position.x - sprites[indices[i]].rect.size.w + 1.f - gap, position.y - sprites[indices[i]].rect.size.h + 1.f - gap },
-            Size{ static_cast<float>(sprites[indices[i]].rect.size.w + gap), static_cast<float>(sprites[indices[i]].rect.size.h + gap) }
+            Point{ position.x - sprites[indices[i]].rect.size.w + 1.f - GAP, position.y - sprites[indices[i]].rect.size.h + 1.f - GAP },
+            Size{ static_cast<float>(sprites[indices[i]].rect.size.w + GAP), static_cast<float>(sprites[indices[i]].rect.size.h + GAP) }
           })) {
         nextPendingIndices->push_back(i);
       } else {
@@ -243,18 +247,18 @@ Action TexturePackerViewGroupFactory::linearlyFillAtlasRight(ViewGroup*const sel
           colW = sprites[indices[i]].rect.size.w;
           canSetColW = false;
         }
-        sprites[indices[i]].atlasIndex = atlasIndex;
+        sprites[indices[i]].atlasI = atlasI;
         sprites[indices[i]].rect.position = Point{ position.x - sprites[indices[i]].rect.size.w + 1, position.y - sprites[indices[i]].rect.size.h + 1 };
         self->add(
           Image::Builder{ renderer, surfaces[indices[i]], sprites[indices[i]].rect.position, Align::LEFT, sprites[indices[i]].isRotated ? Rotation::QUARTER_CLOCKWISE : Rotation::NONE }
             .setA(255u)
-            .setDuration(1u)
+            .setDuration(1u)  // See also ii887522::viewify::Image::Builder::setDuration(const unsigned int) for more details
             .build());
-        position.y -= sprites[indices[i]].rect.size.h + gap;
+        position.y -= sprites[indices[i]].rect.size.h + GAP;
         canGoToNextCol = true;
       }
     }
-    position.x -= colW + gap;
+    position.x -= colW + GAP;
     position.y = sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.position.y + sprites[indices[spriteRows[spriteRowsI].indices.max]].rect.size.h - 1;
     canSetColW = true;
     currentPendingIndices->clear();
@@ -316,11 +320,11 @@ ViewGroup TexturePackerViewGroupFactory::make(SDL_Renderer*const renderer, const
     prepareForNextAtlas();
     return Action::NONE;
   }, [this, renderer, size](ViewGroup& self) {
-    snapshot(renderer, Rect{ Point{ 0, 0 }, size }, outputDirPath + "atlas_" + to_string(atlasIndex) + ".png");
+    snapshot(renderer, Rect{ Point{ 0, 0 }, size }, outputDirPath + "atlas_" + to_string(atlasI) + LOWER_CASE_IMAGE_EXTENSION_NAME);
     self.clear();
     spriteRows.clear();
     spriteRects.clear();
-    ++atlasIndex;
+    ++atlasI;
     return indicesI == indices.size() ? Action::QUIT : Action::NONE;
   } };
 }
