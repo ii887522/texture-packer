@@ -306,22 +306,22 @@ Action TexturePackerViewGroupFactory::fillLShape(ViewGroup*const self, SDL_Rende
 ViewGroup TexturePackerViewGroupFactory::make(SDL_Renderer*const renderer, const Size<int>& size) {
   atlas = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, size.w, size.h);
   SDL_SetRenderTarget(renderer, atlas);
-  return ViewGroup{ renderer, Point{ 0, 0 }, [](ViewGroup&, SDL_Renderer*const) {
+  return ViewGroup{ renderer, Point{ 0, 0 }, [](ViewGroup*const, SDL_Renderer*const) {
     return vector<View*>{ };
-  }, [this, renderer, size](ViewGroup& self) {
+  }, [this, renderer, size](ViewGroup*const self) {
     linearlyLayOutSprites(size);
     sort<SpriteRow, vector>(&spriteRows, [](const SpriteRow& l, const SpriteRow& r) {  // NOLINT(build/include_what_you_use)
       return l.width < r.width;
     });
     pushUpSprites();
-    addImageViewsFromSpriteRows(&self, renderer);
+    addImageViewsFromSpriteRows(self, renderer);
     if (indicesI == indices.size()) return Action::NONE;
-    if (fillLShape(&self, renderer, size) == Action::RETURN_FROM_CALLER) return Action::NONE;
+    if (fillLShape(self, renderer, size) == Action::RETURN_FROM_CALLER) return Action::NONE;
     prepareForNextAtlas();
     return Action::NONE;
-  }, [this, renderer, size](ViewGroup& self) {
+  }, [this, renderer, size](ViewGroup*const self) {
     snapshot(renderer, Rect{ Point{ 0, 0 }, size }, outputDirPath + "atlas_" + to_string(atlasI) + LOWER_CASE_IMAGE_EXTENSION_NAME);
-    self.clear();
+    self->clear();
     spriteRows.clear();
     spriteRects.clear();
     ++atlasI;
