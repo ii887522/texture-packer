@@ -3,9 +3,7 @@
 #ifndef TEXTURE_PACKER_SRC_MAIN_FUNCTIONS_UTIL_H_
 #define TEXTURE_PACKER_SRC_MAIN_FUNCTIONS_UTIL_H_
 
-#include <viewify/Struct/Size.h>
-#include <viewify/Struct/Rect.h>
-#include <viewify/Struct/Point.h>
+#include <viewify/viewify.h>
 #include <string>
 #include "../Struct/Sprite.h"
 
