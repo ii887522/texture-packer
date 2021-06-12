@@ -3,7 +3,7 @@
 #ifndef TEXTURE_PACKER_SRC_MAIN_ANY_COMMANDLINE_H_
 #define TEXTURE_PACKER_SRC_MAIN_ANY_COMMANDLINE_H_
 
-#include <viewify/Struct/Size.h>
+#include <viewify/viewify.h>
 #include <string>
 
 using ii887522::viewify::Size;

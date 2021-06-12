@@ -3,14 +3,10 @@
 #ifndef TEST
 
 #define ALLOCATOR_IMPLEMENTATIONS
-#include <nitro/Any/allocator.h>
+#include <nitro/nitro.h>
 
 #include <SDL.h>
-#include <viewify/Any/App.h>
-#include <viewify/Any/Subsystems.h>
-#include <viewify/Struct/Size.h>
-#include <viewify/Struct/Color.h>
-#include <viewify/Functions/control_flow.h>
+#include <viewify/viewify.h>
 #include <iostream>
 #include <stdexcept>
 #include <filesystem>

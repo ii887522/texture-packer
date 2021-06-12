@@ -2,13 +2,10 @@
 
 #ifdef TEST
 
-#include "util.test.h"  // NOLINT(build/include_subdir)
-#include <nitro/Struct/Range.h>
-#include <viewify/Struct/Rect.h>
-#include <viewify/Struct/Point.h>
-#include <viewify/Struct/Size.h>
-#include <cassert>
+#include <nitro/nitro.h>
+#include <viewify/viewify.h>
 #include <vector>
+#include <catch.hpp>
 #include "../../main/Functions/util.h"
 #include "../../main/Struct/Sprite.h"
 
@@ -20,81 +17,77 @@ using ii887522::viewify::Size;
 
 namespace ii887522::texturePacker {
 
-void testRotate() {
+TEST_CASE("test rotate() function") {
   {
     Sprite sprite{ 0u, Rect{ Point{ 0, 0 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 0);
-    assert(sprite.rect.position.y == 0);
-    assert(sprite.rect.size.w == 1);
-    assert(sprite.rect.size.h == 1);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 0);
+    REQUIRE(sprite.rect.position.y == 0);
+    REQUIRE(sprite.rect.size.w == 1);
+    REQUIRE(sprite.rect.size.h == 1);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 0 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 0);
-    assert(sprite.rect.size.w == 1);
-    assert(sprite.rect.size.h == 1);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 0);
+    REQUIRE(sprite.rect.size.w == 1);
+    REQUIRE(sprite.rect.size.h == 1);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 1, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 1);
-    assert(sprite.rect.size.w == 1);
-    assert(sprite.rect.size.h == 1);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 1);
+    REQUIRE(sprite.rect.size.w == 1);
+    REQUIRE(sprite.rect.size.h == 1);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 2, 1 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 1);
-    assert(sprite.rect.size.w == 1);
-    assert(sprite.rect.size.h == 2);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 1);
+    REQUIRE(sprite.rect.size.w == 1);
+    REQUIRE(sprite.rect.size.h == 2);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 1, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 1);
-    assert(sprite.rect.size.w == 2);
-    assert(sprite.rect.size.h == 1);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 1);
+    REQUIRE(sprite.rect.size.w == 2);
+    REQUIRE(sprite.rect.size.h == 1);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 0u, Rect{ Point{ 1, 1 }, Size{ 2, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 0u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 1);
-    assert(sprite.rect.size.w == 2);
-    assert(sprite.rect.size.h == 2);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 0u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 1);
+    REQUIRE(sprite.rect.size.w == 2);
+    REQUIRE(sprite.rect.size.h == 2);
+    REQUIRE(sprite.isRotated);
   }
   {
     Sprite sprite{ 1u, Rect{ Point{ 1, 1 }, Size{ 2, 2 } }, false };
     rotate(&sprite);
-    assert(sprite.atlasI == 1u);
-    assert(sprite.rect.position.x == 1);
-    assert(sprite.rect.position.y == 1);
-    assert(sprite.rect.size.w == 2);
-    assert(sprite.rect.size.h == 2);
-    assert(sprite.isRotated);
+    REQUIRE(sprite.atlasI == 1u);
+    REQUIRE(sprite.rect.position.x == 1);
+    REQUIRE(sprite.rect.position.y == 1);
+    REQUIRE(sprite.rect.size.w == 2);
+    REQUIRE(sprite.rect.size.h == 2);
+    REQUIRE(sprite.isRotated);
   }
-}
-
-void testUtil() {
-  testRotate();
 }
 
 }  // namespace ii887522::texturePacker

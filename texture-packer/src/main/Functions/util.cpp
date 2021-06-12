@@ -1,9 +1,7 @@
 // Copyright ii887522
 
 #include "util.h"  // NOLINT(build/include_subdir)
-#include <nitro/Functions/string_ext.h>
-#include <nitro/Functions/fs_ext.h>
-#include <nitro/Functions/util.h>
+#include <nitro/nitro.h>
 #include <string>
 #include <filesystem>
 #include <vector>

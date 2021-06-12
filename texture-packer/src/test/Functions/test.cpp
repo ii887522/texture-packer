@@ -5,21 +5,7 @@
 #define ALLOCATOR_IMPLEMENTATIONS
 #include <nitro/Any/allocator.h>
 
-#include "../Any/CommandLine.test.h"
-#include "util.test.h"  // NOLINT(build/include_subdir)
-
-namespace ii887522::texturePacker {
-
-static int main() {
-  testCommandLine();
-  testUtil();
-  return EXIT_SUCCESS;
-}
-
-}  // namespace ii887522::texturePacker
-
-int main() {
-  return ii887522::texturePacker::main();
-}
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
 
 #endif

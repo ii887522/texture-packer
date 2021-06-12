@@ -1,8 +1,7 @@
 // Copyright ii887522
 
 #include "CommandLine.h"
-#include <nitro/Functions/math_ext.h>
-#include <nitro/Functions/fs_ext.h>
+#include <nitro/nitro.h>
 #include <string>
 #include <stdexcept>
 #include <filesystem>
