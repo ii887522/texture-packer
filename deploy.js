@@ -27,10 +27,19 @@ async function bundleResources() {
   return copy(`${projectName}/res/main/`, resDirPath, { recursive: true })
 }
 
+async function bundleInclude() {
+  const includeDirPath = `${bundleOutDirPath}${projectName}-${version}/include/`
+  ensureDirSync(`${includeDirPath}${projectName}/`)
+  return copy(`${projectName}/src/main/`, `${includeDirPath}${projectName}/`, { recursive: true, filter: (src, dest) => {
+    return !src.endsWith('.cpp')
+  } })
+}
+
 async function bundle() {
   return Promise.all([
     bundleCode(),
-    bundleResources()
+    bundleResources(),
+    bundleInclude()
   ])
 }
 

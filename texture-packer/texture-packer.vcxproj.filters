@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Test Header Files">
-      <UniqueIdentifier>{4643267a-c185-4dc9-9cd3-01d5e6b4a97f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Test Source Files">
       <UniqueIdentifier>{71b15266-dc8b-44ba-b7b6-da2bcb5610a2}</UniqueIdentifier>
     </Filter>
@@ -43,17 +40,11 @@
     <Filter Include="Source Files\ViewGroupFactory">
       <UniqueIdentifier>{386a40c1-52a5-4e4e-921e-1369ac9f03a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Test Header Files\Any">
-      <UniqueIdentifier>{87a817eb-a988-44d8-9d08-0372b8df8e19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Test Source Files\Any">
       <UniqueIdentifier>{904cf034-29aa-4135-ae18-03932e7c01ef}</UniqueIdentifier>
     </Filter>
     <Filter Include="Test Source Files\Functions">
       <UniqueIdentifier>{9a84d049-c469-4ad0-9ef5-b03ad9c49303}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Test Header Files\Functions">
-      <UniqueIdentifier>{8d883a04-1024-4cfa-97bc-0a8bca6890b7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Test Resource Files\images">
       <UniqueIdentifier>{888a3a45-cf2d-442e-8d40-ea1e3832e045}</UniqueIdentifier>
@@ -93,17 +84,14 @@
     <ClInclude Include="src\main\Struct\Sprite.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\Any\CommandLine.test.h">
-      <Filter>Test Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\Functions\util.test.h">
-      <Filter>Test Header Files\Functions</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Struct\SpriteRow.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\constants.h">
       <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\texture_packer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

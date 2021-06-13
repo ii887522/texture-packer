@@ -3,7 +3,7 @@
 #ifndef TEXTURE_PACKER_SRC_MAIN_STRUCT_SPRITEROW_H_
 #define TEXTURE_PACKER_SRC_MAIN_STRUCT_SPRITEROW_H_
 
-#include <nitro/Struct/Range.h>
+#include <nitro/nitro.h>
 
 using ii887522::nitro::Range;
 
