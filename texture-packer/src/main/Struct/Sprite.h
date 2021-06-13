@@ -3,7 +3,7 @@
 #ifndef TEXTURE_PACKER_SRC_MAIN_STRUCT_SPRITE_H_
 #define TEXTURE_PACKER_SRC_MAIN_STRUCT_SPRITE_H_
 
-#include <viewify/viewify.h>
+#include <viewify/Struct/Rect.h>
 
 using ii887522::viewify::Rect;
 
