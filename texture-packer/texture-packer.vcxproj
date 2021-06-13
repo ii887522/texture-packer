@@ -32,6 +32,7 @@
     <ClInclude Include="src\main\Functions\util.h" />
     <ClInclude Include="src\main\Struct\Sprite.h" />
     <ClInclude Include="src\main\Struct\SpriteRow.h" />
+    <ClInclude Include="src\main\texture_packer.h" />
     <ClInclude Include="src\main\ViewGroupFactory\TexturePackerViewGroupFactory.h" />
   </ItemGroup>
   <ItemGroup>

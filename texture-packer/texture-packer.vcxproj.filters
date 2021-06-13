@@ -90,6 +90,9 @@
     <ClInclude Include="src\main\Any\constants.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\texture_packer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main\Any\CommandLine.cpp">
