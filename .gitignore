@@ -10,3 +10,4 @@ texture-packer/**/*.exe*
 texture-packer/**/*.ilk
 texture-packer/**/*.log
 texture-packer/**/*.FileListAbsolute.txt
+texture-packer/**/*.json*
