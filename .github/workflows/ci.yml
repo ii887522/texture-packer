@@ -85,7 +85,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
