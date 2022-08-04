@@ -1,0 +1,80 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in library 'texture-packer'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--lib",
+          "--package=texture-packer"
+        ],
+        "filter": {
+          "name": "texture-packer",
+          "kind": "lib"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'texture-packer'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=texture-packer",
+          "--package=texture-packer"
+        ],
+        "filter": {
+          "name": "texture-packer",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'texture-packer'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=texture-packer",
+          "--package=texture-packer"
+        ],
+        "filter": {
+          "name": "texture-packer",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug integration test 'main'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--test=main",
+          "--package=texture-packer"
+        ],
+        "filter": {
+          "name": "main",
+          "kind": "test"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
