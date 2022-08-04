@@ -1,0 +1,17 @@
+[package]
+name = "texture-packer-macro"
+version = "1.2.0"
+edition = "2021"
+description = "A procedural macro library that is used together with texture-packer."
+repository = "https://github.com/ii887522/texture-packer"
+license = "MIT"
+keywords = ["atlas", "texture", "packer", "image", "generator"]
+exclude = [".gitignore"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+png = "0.17.5"
+syn = "1.0.95"
+quote = "1.0.18"

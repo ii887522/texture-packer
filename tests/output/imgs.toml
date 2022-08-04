@@ -1,0 +1,1110 @@
+[[regions]]
+name = '5_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 0
+w = 310
+h = 297
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '7_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 310
+y = 0
+w = 311
+h = 275
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '8_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 621
+y = 0
+w = 273
+h = 251
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '5'
+atlas_width = 2048
+atlas_height = 2048
+x = 894
+y = 0
+w = 254
+h = 241
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '11_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1148
+y = 0
+w = 242
+h = 228
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '9_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1390
+y = 0
+w = 232
+h = 220
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '7'
+atlas_width = 2048
+atlas_height = 2048
+x = 1622
+y = 0
+w = 255
+h = 219
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '13_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 297
+w = 246
+h = 218
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '10_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 246
+y = 297
+w = 230
+h = 216
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '14_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 476
+y = 297
+w = 217
+h = 208
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '21_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 693
+y = 297
+w = 287
+h = 196
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '8'
+atlas_width = 2048
+atlas_height = 2048
+x = 980
+y = 297
+w = 217
+h = 195
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '15_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1197
+y = 297
+w = 209
+h = 191
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '22_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1406
+y = 297
+w = 271
+h = 189
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '20_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1677
+y = 297
+w = 197
+h = 186
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '23_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 515
+w = 177
+h = 176
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '24_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 177
+y = 515
+w = 305
+h = 174
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '19_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 482
+y = 515
+w = 198
+h = 173
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '26_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 680
+y = 515
+w = 295
+h = 173
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '11'
+atlas_width = 2048
+atlas_height = 2048
+x = 975
+y = 515
+w = 186
+h = 172
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '27_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1161
+y = 515
+w = 253
+h = 170
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '28_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1414
+y = 515
+w = 306
+h = 168
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '16_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1720
+y = 515
+w = 208
+h = 168
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '18_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 691
+w = 202
+h = 164
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '25_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 202
+y = 691
+w = 174
+h = 164
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '9'
+atlas_width = 2048
+atlas_height = 2048
+x = 376
+y = 691
+w = 176
+h = 164
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '13'
+atlas_width = 2048
+atlas_height = 2048
+x = 552
+y = 691
+w = 190
+h = 162
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '29_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 742
+y = 691
+w = 199
+h = 161
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '10'
+atlas_width = 2048
+atlas_height = 2048
+x = 941
+y = 691
+w = 174
+h = 160
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '30_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1115
+y = 691
+w = 282
+h = 155
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '14'
+atlas_width = 2048
+atlas_height = 2048
+x = 1397
+y = 691
+w = 161
+h = 152
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '31_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1558
+y = 691
+w = 224
+h = 149
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '33_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1782
+y = 691
+w = 219
+h = 143
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '32_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 855
+w = 285
+h = 143
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '21'
+atlas_width = 2048
+atlas_height = 2048
+x = 285
+y = 855
+w = 231
+h = 140
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '15'
+atlas_width = 2048
+atlas_height = 2048
+x = 516
+y = 855
+w = 153
+h = 135
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '22'
+atlas_width = 2048
+atlas_height = 2048
+x = 669
+y = 855
+w = 215
+h = 133
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '20'
+atlas_width = 2048
+atlas_height = 2048
+x = 884
+y = 855
+w = 141
+h = 130
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '34_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1025
+y = 855
+w = 207
+h = 128
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '35_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1232
+y = 855
+w = 191
+h = 124
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '1_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1423
+y = 855
+w = 308
+h = 124
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'e_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1731
+y = 855
+w = 184
+h = 120
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'd_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1915
+y = 855
+w = 120
+h = 120
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '23'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 998
+w = 121
+h = 120
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '24'
+atlas_width = 2048
+atlas_height = 2048
+x = 121
+y = 998
+w = 249
+h = 118
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '4_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 370
+y = 998
+w = 300
+h = 117
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '19'
+atlas_width = 2048
+atlas_height = 2048
+x = 670
+y = 998
+w = 142
+h = 117
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '26'
+atlas_width = 2048
+atlas_height = 2048
+x = 812
+y = 998
+w = 239
+h = 117
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '36_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1051
+y = 998
+w = 195
+h = 115
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '3_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1246
+y = 998
+w = 301
+h = 115
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '27'
+atlas_width = 2048
+atlas_height = 2048
+x = 1547
+y = 998
+w = 197
+h = 114
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '37_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1744
+y = 998
+w = 199
+h = 113
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '28'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 1118
+w = 250
+h = 112
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '16'
+atlas_width = 2048
+atlas_height = 2048
+x = 250
+y = 1118
+w = 152
+h = 112
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '38_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 402
+y = 1118
+w = 167
+h = 109
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '39_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 569
+y = 1118
+w = 155
+h = 109
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '18'
+atlas_width = 2048
+atlas_height = 2048
+x = 724
+y = 1118
+w = 146
+h = 108
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '25'
+atlas_width = 2048
+atlas_height = 2048
+x = 870
+y = 1118
+w = 118
+h = 108
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '40_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 988
+y = 1118
+w = 302
+h = 106
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '29'
+atlas_width = 2048
+atlas_height = 2048
+x = 1290
+y = 1118
+w = 143
+h = 105
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '41_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1433
+y = 1118
+w = 212
+h = 104
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '30'
+atlas_width = 2048
+atlas_height = 2048
+x = 1645
+y = 1118
+w = 226
+h = 99
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '42_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1871
+y = 1118
+w = 106
+h = 99
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '31'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 1230
+w = 168
+h = 93
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'a_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 168
+y = 1230
+w = 88
+h = 88
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'c_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 256
+y = 1230
+w = 120
+h = 88
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'b_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 376
+y = 1230
+w = 120
+h = 88
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '32'
+atlas_width = 2048
+atlas_height = 2048
+x = 496
+y = 1230
+w = 229
+h = 87
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '33'
+atlas_width = 2048
+atlas_height = 2048
+x = 725
+y = 1230
+w = 163
+h = 87
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '0_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 888
+y = 1230
+w = 310
+h = 87
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '6_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1198
+y = 1230
+w = 293
+h = 85
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '17_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1491
+y = 1230
+w = 204
+h = 82
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '43_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1695
+y = 1230
+w = 215
+h = 81
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '44_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 1323
+w = 308
+h = 74
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '2_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 308
+y = 1323
+w = 306
+h = 74
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '34'
+atlas_width = 2048
+atlas_height = 2048
+x = 614
+y = 1323
+w = 151
+h = 72
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '12_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 765
+y = 1323
+w = 224
+h = 69
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '1'
+atlas_width = 2048
+atlas_height = 2048
+x = 989
+y = 1323
+w = 252
+h = 68
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '35'
+atlas_width = 2048
+atlas_height = 2048
+x = 1241
+y = 1323
+w = 135
+h = 68
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '45_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1376
+y = 1323
+w = 133
+h = 66
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '46_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1509
+y = 1323
+w = 194
+h = 66
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '47_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1703
+y = 1323
+w = 119
+h = 64
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '4'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 1397
+w = 244
+h = 61
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '3'
+atlas_width = 2048
+atlas_height = 2048
+x = 244
+y = 1397
+w = 245
+h = 59
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '36'
+atlas_width = 2048
+atlas_height = 2048
+x = 489
+y = 1397
+w = 139
+h = 59
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '37'
+atlas_width = 2048
+atlas_height = 2048
+x = 628
+y = 1397
+w = 143
+h = 57
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '39'
+atlas_width = 2048
+atlas_height = 2048
+x = 771
+y = 1397
+w = 99
+h = 53
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '38'
+atlas_width = 2048
+atlas_height = 2048
+x = 870
+y = 1397
+w = 111
+h = 53
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '40'
+atlas_width = 2048
+atlas_height = 2048
+x = 981
+y = 1397
+w = 246
+h = 50
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '41'
+atlas_width = 2048
+atlas_height = 2048
+x = 1227
+y = 1397
+w = 156
+h = 48
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '42'
+atlas_width = 2048
+atlas_height = 2048
+x = 1383
+y = 1397
+w = 50
+h = 43
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '0'
+atlas_width = 2048
+atlas_height = 2048
+x = 1433
+y = 1397
+w = 254
+h = 31
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '6'
+atlas_width = 2048
+atlas_height = 2048
+x = 1687
+y = 1397
+w = 237
+h = 29
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '17'
+atlas_width = 2048
+atlas_height = 2048
+x = 0
+y = 1458
+w = 148
+h = 26
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '43'
+atlas_width = 2048
+atlas_height = 2048
+x = 148
+y = 1458
+w = 159
+h = 25
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '44'
+atlas_width = 2048
+atlas_height = 2048
+x = 307
+y = 1458
+w = 252
+h = 18
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '2'
+atlas_width = 2048
+atlas_height = 2048
+x = 559
+y = 1458
+w = 250
+h = 18
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '12'
+atlas_width = 2048
+atlas_height = 2048
+x = 809
+y = 1458
+w = 168
+h = 13
+is_rotated = true
+is_opaque = false
+
+[[regions]]
+name = '45'
+atlas_width = 2048
+atlas_height = 2048
+x = 977
+y = 1458
+w = 77
+h = 10
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '46'
+atlas_width = 2048
+atlas_height = 2048
+x = 1054
+y = 1458
+w = 138
+h = 10
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = '47'
+atlas_width = 2048
+atlas_height = 2048
+x = 1192
+y = 1458
+w = 63
+h = 8
+is_rotated = false
+is_opaque = false
