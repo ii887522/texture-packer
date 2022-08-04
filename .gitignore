@@ -1,13 +1,1 @@
-.vs
-node_modules
-libs
-texture-packer/**/*.dll
-texture-packer/**/*.tlog
-texture-packer/**/*.*obj
-texture-packer/**/*.idb
-texture-packer/**/*.*pdb
-texture-packer/**/*.exe*
-texture-packer/**/*.ilk
-texture-packer/**/*.log
-texture-packer/**/*.FileListAbsolute.txt
-texture-packer/**/*.json*
+/target
