@@ -428,21 +428,10 @@ is_rotated = false
 is_opaque = false
 
 [[regions]]
-name = '35_blur'
-atlas_width = 2048
-atlas_height = 2048
-x = 1232
-y = 855
-w = 191
-h = 124
-is_rotated = false
-is_opaque = false
-
-[[regions]]
 name = '1_blur'
 atlas_width = 2048
 atlas_height = 2048
-x = 1423
+x = 1232
 y = 855
 w = 308
 h = 124
@@ -450,13 +439,13 @@ is_rotated = false
 is_opaque = false
 
 [[regions]]
-name = 'e_blur'
+name = '35_blur'
 atlas_width = 2048
 atlas_height = 2048
-x = 1731
+x = 1540
 y = 855
-w = 184
-h = 120
+w = 191
+h = 124
 is_rotated = false
 is_opaque = false
 
@@ -464,9 +453,20 @@ is_opaque = false
 name = 'd_blur'
 atlas_width = 2048
 atlas_height = 2048
-x = 1915
+x = 1731
 y = 855
 w = 120
+h = 120
+is_rotated = false
+is_opaque = false
+
+[[regions]]
+name = 'e_blur'
+atlas_width = 2048
+atlas_height = 2048
+x = 1851
+y = 855
+w = 184
 h = 120
 is_rotated = false
 is_opaque = false
@@ -802,23 +802,23 @@ is_rotated = false
 is_opaque = false
 
 [[regions]]
-name = '44_blur'
+name = '2_blur'
 atlas_width = 2048
 atlas_height = 2048
 x = 0
 y = 1323
-w = 308
+w = 306
 h = 74
 is_rotated = false
 is_opaque = false
 
 [[regions]]
-name = '2_blur'
+name = '44_blur'
 atlas_width = 2048
 atlas_height = 2048
-x = 308
+x = 306
 y = 1323
-w = 306
+w = 308
 h = 74
 is_rotated = false
 is_opaque = false

@@ -41,7 +41,7 @@ impl Display for AtlasOverflowError {
 pub(crate) struct GLBasicStage {
   env_args: EnvArgs,
   // size: UVec2,
-  dot: GLTexture,
+  _dot: GLTexture,
   _blur_input_texs: Option<Vec<GLTexture>>,
   blur_input_tex_regions: Option<Vec<RefCell<TextureRegion>>>,
   _texs: Vec<GLTexture>,
@@ -136,20 +136,62 @@ impl GLBasicStage {
         None
       }
     }).collect::<Vec<_>>();
+    let mut dot = GLTexture::new(gl_texture::Arg {
+      img_attr: ImgAttr::Image(load_png_file!("res/dot.png")),
+      tex_unit: 0,
+      min_filter: gl::NEAREST,
+      mag_filter: gl::NEAREST,
+      wrap_s: gl::CLAMP_TO_EDGE,
+      wrap_t: gl::CLAMP_TO_EDGE,
+    });
+    dot.init();
+    let mut blur_input_tex_regions =
+      blur_input_texs
+        .as_ref()
+        .map(|blur_input_texs: &Vec<GLTexture>| {
+          blur_input_texs
+            .par_iter()
+            .map(|blur_input_tex| {
+              RefCell::new(TextureRegion {
+                name: blur_input_tex.get_name().unwrap().to_owned() + "_blur",
+                atlas_id: blur_input_tex.get_id(),
+                atlas_size: blur_input_tex.get_size(),
+                prev_position: UVec2::new(()),
+                position: UVec2::new(()),
+                size: blur_input_tex.get_size(),
+                is_rotated: false,
+                is_opaque: false,
+              })
+            })
+            .collect()
+        });
+    if let Some(blur_input) = &blur_input {
+      if let Some(rects) = &blur_input.rects {
+        blur_input_tex_regions.get_or_insert(vec![]).append(
+          &mut rects
+            .iter()
+            .map(|(name, rect)| {
+              RefCell::new(TextureRegion {
+                name: name.to_owned() + "_blur",
+                atlas_id: dot.get_id(),
+                atlas_size: dot.get_size(),
+                prev_position: UVec2::new(()),
+                position: UVec2::new(()),
+                size: UVec2::new((rect.w, rect.h)),
+                is_rotated: false,
+                is_opaque: false,
+              })
+            })
+            .collect::<Vec<_>>(),
+        );
+      }
+    }
     let mut this = Self {
       env_args: EnvArgs {
         input_dir_path,
         output_dir_path,
       },
       // size,
-      dot: GLTexture::new(gl_texture::Arg {
-        img_attr: ImgAttr::Image(load_png_file!("res/dot.png")),
-        tex_unit: 0,
-        min_filter: gl::NEAREST,
-        mag_filter: gl::NEAREST,
-        wrap_s: gl::CLAMP_TO_EDGE,
-        wrap_t: gl::CLAMP_TO_EDGE,
-      }),
       tex_regions: texs
         .par_iter()
         .map(|tex| {
@@ -166,14 +208,14 @@ impl GLBasicStage {
         })
         .collect(),
       _texs: texs,
-      blur_input_scene: blur_input_texs.as_ref().map(|_| {
+      blur_input_scene: blur_input_tex_regions.as_ref().map(|_| {
         RefCell::new(GLBasicScene::new(
           UVec2::new((INITIAL_SIZE >> 1, INITIAL_SIZE >> 1)),
           UVec2::new((INITIAL_SIZE, INITIAL_SIZE)),
           1,
         ))
       }),
-      blur_scenes: blur_input_texs.as_ref().map(|_| {
+      blur_scenes: blur_input_tex_regions.as_ref().map(|_| {
         RefCell::new(vec![
           GLPostFXScene::new(gl_postfx_scene::Arg {
             size: UVec2::new((INITIAL_SIZE >> 1, INITIAL_SIZE >> 1)),
@@ -195,25 +237,8 @@ impl GLBasicStage {
           }),
         ])
       }),
-      blur_input_tex_regions: blur_input_texs
-        .as_ref()
-        .map(|blur_input_texs: &Vec<GLTexture>| {
-          blur_input_texs
-            .par_iter()
-            .map(|blur_input_tex| {
-              RefCell::new(TextureRegion {
-                name: blur_input_tex.get_name().unwrap().to_owned() + "_blur",
-                atlas_id: blur_input_tex.get_id(),
-                atlas_size: blur_input_tex.get_size(),
-                prev_position: UVec2::new(()),
-                position: UVec2::new(()),
-                size: blur_input_tex.get_size(),
-                is_rotated: false,
-                is_opaque: false,
-              })
-            })
-            .collect()
-        }),
+      blur_input_tex_regions,
+      _dot: dot,
       _blur_input_texs: blur_input_texs,
       basic_scene: GLBasicScene::new(
         UVec2::new((INITIAL_SIZE, INITIAL_SIZE)),
@@ -231,28 +256,6 @@ impl GLBasicStage {
       max_tex_h: Cell::new(0),
       used_size: Cell::new(UVec2::new(())),
     };
-    this.dot.init();
-    if let Some(blur_input) = &blur_input {
-      if let Some(rects) = &blur_input.rects {
-        this.blur_input_tex_regions.get_or_insert(vec![]).append(
-          &mut rects
-            .iter()
-            .map(|(name, rect)| {
-              RefCell::new(TextureRegion {
-                name: name.to_owned() + "_blur",
-                atlas_id: this.dot.get_id(),
-                atlas_size: this.dot.get_size(),
-                prev_position: UVec2::new(()),
-                position: UVec2::new(()),
-                size: UVec2::new((rect.w, rect.h)),
-                is_rotated: false,
-                is_opaque: false,
-              })
-            })
-            .collect::<Vec<_>>(),
-        );
-      }
-    }
     if let Some(blur_input_tex_regions) = &mut this.blur_input_tex_regions {
       blur_input_tex_regions.par_sort_unstable_by(|a, b| {
         let a = a.borrow();
