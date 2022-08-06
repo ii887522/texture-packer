@@ -737,7 +737,7 @@ dependencies = [
 
 [[package]]
 name = "texture-packer"
-version = "1.2.1"
+version = "1.2.2"
 dependencies = [
  "async-std",
  "futures",
@@ -756,7 +756,7 @@ dependencies = [
 
 [[package]]
 name = "texture-packer-macro"
-version = "1.2.1"
+version = "1.2.2"
 dependencies = [
  "png",
  "quote",
