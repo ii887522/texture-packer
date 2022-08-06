@@ -319,8 +319,10 @@ impl GLBasicStage {
           self.current_tex_position.get().get_y() + self.max_tex_h.get() + gap,
         )));
         self.max_tex_h.set(0);
-        if self.current_tex_position.get().get_y() + atlas_tex_size.get_y() + (gap >> 1)
-          > basic_scene.get_virtual_size().get_y()
+        if self.current_tex_position.get().get_x() + atlas_tex_size.get_x() + (gap >> 1)
+          > basic_scene.get_virtual_size().get_x()
+          || self.current_tex_position.get().get_y() + atlas_tex_size.get_y() + (gap >> 1)
+            > basic_scene.get_virtual_size().get_y()
         {
           return Err(AtlasOverflowError);
         }
