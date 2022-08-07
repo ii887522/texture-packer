@@ -107,8 +107,10 @@ impl GLTexture {
       );
       match &mut self.img_attr {
         ImgAttr::Path(img_path) => {
-          let mut img = Surface::from_file(img_path).unwrap();
-          img.convert_format(PixelFormatEnum::RGBA8888).unwrap();
+          let mut img = Surface::from_file(img_path)
+            .unwrap()
+            .convert_format(PixelFormatEnum::RGBA8888)
+            .unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
           let pitch = img.pitch();
@@ -136,8 +138,9 @@ impl GLTexture {
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, size.get_x() as _, size.get_y() as _)
         }
         ImgAttr::Image(img) => {
-          let mut img = Surface::from(img);
-          img.convert_format(PixelFormatEnum::RGBA8888).unwrap();
+          let mut img = Surface::from(img)
+            .convert_format(PixelFormatEnum::RGBA8888)
+            .unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
           let pitch = img.pitch();
