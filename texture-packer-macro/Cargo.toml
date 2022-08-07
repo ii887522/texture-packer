@@ -1,6 +1,6 @@
 [package]
 name = "texture-packer-macro"
-version = "1.2.3"
+version = "1.2.4"
 edition = "2021"
 description = "A procedural macro library that is used together with texture-packer."
 repository = "https://github.com/ii887522/texture-packer"
