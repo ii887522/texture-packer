@@ -202,7 +202,7 @@ impl GLBasicStage {
             prev_position: UVec2::new(()),
             position: UVec2::new(()),
             size: tex.get_size(),
-            is_rotated: false,
+            is_rotated: tex.get_size().get_x() < tex.get_size().get_y(),
             is_opaque: tex.is_opaque(),
           })
         })
@@ -448,7 +448,6 @@ impl GLBasicStage {
     tex_region.atlas_id = self.basic_scene.get_fbo().get_tex_id();
     tex_region.atlas_size = self.basic_scene.get_virtual_size();
     tex_region.prev_position = tex_region.position;
-    tex_region.is_rotated = tex_region.size.get_x() < tex_region.size.get_y();
     tex_region.size = UVec2::new((
       tex_region.size.get_x().max(tex_region.size.get_y()) + BASIC_ATLAS_GAP,
       tex_region.size.get_x().min(tex_region.size.get_y()) + BASIC_ATLAS_GAP,
