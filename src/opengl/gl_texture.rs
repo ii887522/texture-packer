@@ -1,8 +1,8 @@
-use super::GLPixelFormat;
 use gl::types::*;
 use iron_ingot::UVec2;
-use sdl2::{image::LoadSurface, surface::Surface};
 use texture_packer::funcs::util::find_name;
+
+use sdl2::{image::LoadSurface, pixels::PixelFormatEnum, surface::Surface};
 
 use crate::{
   any::{image::Image, Opacity},
@@ -108,15 +108,14 @@ impl GLTexture {
       match &mut self.img_attr {
         ImgAttr::Path(img_path) => {
           let mut img = Surface::from_file(img_path).unwrap();
+          img.convert_format(PixelFormatEnum::RGBA8888).unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
-          let pixel_format = img.pixel_format_enum();
-          let gl_pixel_format = GLPixelFormat::from(pixel_format);
           let pitch = img.pitch();
           let width = img.width();
           let height = img.height();
           let pixels = img.without_lock_mut().unwrap();
-          if find_opacity(pixels, pixel_format) == Opacity::Opaque {
+          if find_opacity(pixels, PixelFormatEnum::RGBA8888) == Opacity::Opaque {
             self.is_opaque = true;
           }
           flip_vertically(pixels, pitch);
@@ -127,8 +126,8 @@ impl GLTexture {
             0,
             width as _,
             height as _,
-            gl_pixel_format.get_format(),
-            gl_pixel_format.get_type(),
+            gl::RGBA,
+            gl::UNSIGNED_BYTE,
             pixels as *const _ as *const _,
           );
         }
@@ -138,9 +137,9 @@ impl GLTexture {
         }
         ImgAttr::Image(img) => {
           let mut img = Surface::from(img);
+          img.convert_format(PixelFormatEnum::RGBA8888).unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
-          let gl_pixel_format = GLPixelFormat::from(img.pixel_format_enum());
           let pitch = img.pitch();
           let width = img.width();
           let height = img.height();
@@ -153,8 +152,8 @@ impl GLTexture {
             0,
             width as _,
             height as _,
-            gl_pixel_format.get_format(),
-            gl_pixel_format.get_type(),
+            gl::RGBA,
+            gl::UNSIGNED_BYTE,
             pixels as *const _ as *const _,
           );
         }
