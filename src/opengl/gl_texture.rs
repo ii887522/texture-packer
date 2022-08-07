@@ -109,7 +109,7 @@ impl GLTexture {
         ImgAttr::Path(img_path) => {
           let mut img = Surface::from_file(img_path)
             .unwrap()
-            .convert_format(PixelFormatEnum::RGBA8888)
+            .convert_format(PixelFormatEnum::ABGR8888)
             .unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
@@ -139,7 +139,7 @@ impl GLTexture {
         }
         ImgAttr::Image(img) => {
           let mut img = Surface::from(img)
-            .convert_format(PixelFormatEnum::RGBA8888)
+            .convert_format(PixelFormatEnum::ABGR8888)
             .unwrap();
           self.size = UVec2::new((img.width(), img.height()));
           gl::TextureStorage2D(self.id, 1, gl::RGBA8, img.width() as _, img.height() as _);
